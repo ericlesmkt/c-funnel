@@ -134,6 +134,38 @@ export default function Home() {
             .stat-number { font-size: 1.4rem; }
             .delay-1, .delay-2, .delay-3 { animation-delay: 0s; }
         }
+            /* CARROSSEL DE AUTORIDADE (DUOTONE) */
+        .carousel-container { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; scrollbar-width: none; }
+        .carousel-container::-webkit-scrollbar { display: none; }
+        .duotone-card { min-width: 280px; flex: 1; position: relative; border-radius: 16px; overflow: hidden; scroll-snap-align: start; cursor: pointer; aspect-ratio: 3/4; border: 1px solid rgba(255,255,255,0.05); }
+        .duotone-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); transition: all 0.5s ease; }
+        .duotone-overlay { position: absolute; inset: 0; background-color: var(--primary); mix-blend-mode: multiply; opacity: 0.8; transition: opacity 0.5s ease; }
+       .duotone-content { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            padding: 25px 20px; 
+            background: linear-gradient(to top, rgba(15,14,19,0.95) 0%, transparent 100%); 
+            z-index: 2; 
+            transition: padding-bottom 0.3s ease; /* Mudamos de transform para padding */
+        }
+        
+        .duotone-card:hover .duotone-img { filter: grayscale(0%) contrast(1); transform: scale(1.05); }
+        .duotone-card:hover .duotone-overlay { opacity: 0; }
+        .duotone-card:hover .duotone-content { padding-bottom: 35px; } /* Empurra o texto para cima sem descolar o fundo */
+
+        
+
+        /* FAQ VIP */
+        .faq-item { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 20px 24px; border-radius: 16px; margin-bottom: 12px; text-align: left; transition: all 0.3s ease; }
+        .faq-item:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,202,133,0.2); }
+        details summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; color: #edecee; transition: color 0.3s; }
+        details summary:hover { color: var(--primary); }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: '+'; font-size: 1.5rem; color: var(--primary); font-weight: 300; }
+        details[open] summary::after { content: '-'; }
+        details p { margin-top: 15px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
       `}} />
 
       <div className="noise-overlay"></div>
@@ -259,6 +291,75 @@ export default function Home() {
               </div>
           </div>
       </section>
+      {/* SEÇÃO DE AUTORIDADE (CARROSSEL DUOTONE E BIO) */}
+      <section className="container animate-enter" style={{ marginBottom: "100px", marginTop: "40px" }}>
+          <div style={{ textAlign: "center", marginBottom: "50px" }}>
+              <span style={{ color: 'var(--primary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>Quem está nos bastidores</span>
+              <h2 style={{ fontSize: '2.2rem', marginTop: '10px' }}>O Arquiteto da Máquina</h2>
+          </div>
+
+          <div className="carousel-container">
+              {/* Card 1 */}
+              <div className="duotone-card">
+                  <img src="/images/foto-ericles-1.jpg" alt="Audiovisual Premium" className="duotone-img" />
+                  <div className="duotone-overlay"></div>
+                  <div className="duotone-content">
+                      <h3 style={{ fontSize: "1.2rem", color: "#fff", marginBottom: "4px" }}>Audiovisual High-End</h3>
+                      <p style={{ fontSize: "0.85rem", color: "var(--text-body-glass)" }}>Mais de 6 anos traduzindo o valor de empresas físicas em imagens cinematográficas que geram desejo imediato.</p>
+                  </div>
+              </div>
+              {/* Card 2 */}
+              <div className="duotone-card">
+                  <img src="/images/foto-ericles-2.jpg" alt="Tráfego Pago" className="duotone-img" />
+                  <div className="duotone-overlay"></div>
+                  <div className="duotone-content">
+                      <h3 style={{ fontSize: "1.2rem", color: "#fff", marginBottom: "4px" }}>Performance e Tráfego</h3>
+                      <p style={{ fontSize: "0.85rem", color: "var(--text-body-glass)" }}>Gestão de campanhas focadas em conversão. O vídeo bonito só tem valor quando traz o lead qualificado pro WhatsApp.</p>
+                  </div>
+              </div>
+              {/* Card 3 */}
+              <div className="duotone-card">
+                  <img src="/images/foto-ericles-3.jpg" alt="Visão de Negócio" className="duotone-img" />
+                  <div className="duotone-overlay"></div>
+                  <div className="duotone-content">
+                      <h3 style={{ fontSize: "1.2rem", color: "#fff", marginBottom: "4px" }}>Visão de Dono</h3>
+                      <p style={{ fontSize: "0.85rem", color: "var(--text-body-glass)" }}>À frente da Chama Agência Digital. Sei que curtida não paga folha de pagamento. O foco é faturamento.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div style={{ maxWidth: "750px", margin: "50px auto 0", textAlign: "center", padding: "0 20px" }}>
+              <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7" }}>
+                  Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>. Não sou um "guru de internet" tentando te vender fórmula mágica. Sou um estrategista de negócios locais. Cansei de ver empresários excelentes perdendo clientes para concorrentes medíocres só porque não sabem se posicionar no digital. Criei o <strong>Plano Definitivo</strong> para instalar na sua empresa o mesmo sistema de captação que utilizo nos meus bastidores.
+              </p>
+          </div>
+      </section>
+
+      {/* SEÇÃO FAQ (QUEBRA DE OBJEÇÕES) */}
+      <section className="container animate-enter" style={{ marginBottom: "80px" }}>
+          <h2 className="text-center" style={{ marginBottom: "40px", fontSize: "2rem" }}>Perguntas Frequentes</h2>
+          
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+              <div className="faq-item">
+                  <details>
+                      <summary>Meu nicho é muito específico, isso funciona pra mim?</summary>
+                      <p>Sim. O Plano Definitivo não é sobre "fazer dancinhas", é sobre fundamentos de atenção humana e conversão. Se o seu negócio resolve o problema de alguém na sua cidade, nós vamos construir a ponte para que esse cliente te encontre e compre de você.</p>
+                  </details>
+              </div>
+              <div className="faq-item">
+                  <details>
+                      <summary>Qual a diferença entre isso e contratar uma agência tradicional?</summary>
+                      <p>A agência tradicional te faz refém dela e foca em "postagens bonitinhas". Nós construímos a máquina de vendas <strong>dentro</strong> da sua empresa. Eu mapeio a estratégia, entrego o funil pronto e treino você (ou alguém da sua equipe) para rodar tudo com total autonomia. Você vira o dono da sua própria aquisição.</p>
+                  </details>
+              </div>
+              <div className="faq-item">
+                  <details>
+                      <summary>Preciso de uma equipe grande ou equipamentos caros?</summary>
+                      <p>De forma alguma. No Portal ChamaLabs, nós ensinamos o seu funcionário (ou você) a captar, editar e subir campanhas usando apenas um celular atual e ferramentas acessíveis. O que importa é a estrutura narrativa do vídeo, não se ele foi gravado com câmera de cinema.</p>
+                  </details>
+              </div>
+          </div>
+      </section>
 
      {/* SEÇÃO DE OFERTA CLEAN E ALINHADA */}
      <section id="offer" className="container">
@@ -299,7 +400,7 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-          <p style={{ marginBottom: "10px" }}>&copy; 2026 ChamaLabs.</p>
+          <p style={{ marginBottom: "10px" }}>&copy; 2026 Chama Inside.</p>
           <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>Todos os direitos reservados.</p>
       </footer>
 
