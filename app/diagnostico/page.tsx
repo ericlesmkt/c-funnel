@@ -230,7 +230,13 @@ export default function LeadFunnel() {
             </button>
           )}
           <button 
-            disabled={isSubmitting || (step === 1 && !formData.faturamento) || (step === 2 && !formData.gargalo) || (step === 4 && (!formData.nome || formData.whatsapp.length < 14))} 
+            disabled={
+              isSubmitting || 
+              (step === 1 && !formData.faturamento) || 
+              (step === 2 && !formData.gargalo) || 
+              (step === 3 && (!formData.nome.trim() || !formData.empresa.trim())) || 
+              (step === 4 && formData.whatsapp.length < 14)
+            } 
             onClick={step === 4 ? handleFinalizar : nextStep} 
             className="flex-1 py-4 rounded-xl bg-[#ffca85] text-[#15141b] font-bold text-base hover:bg-[#e6b677] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,202,133,0.2)]"
           >
