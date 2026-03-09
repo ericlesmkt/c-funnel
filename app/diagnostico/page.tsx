@@ -23,6 +23,22 @@ export default function LeadFunnel() {
   const nextStep = () => setStep((prev) => Math.min(prev + 1, 4));
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
+  // Função para aplicar a máscara (DD) 9XXXX-XXXX
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não é número
+    if (value.length > 11) value = value.slice(0, 11); // Limita a 11 dígitos numéricos
+    
+    // Aplica a formatação
+    if (value.length > 2) {
+      value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+    }
+    if (value.length > 7) {
+      value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+    }
+    
+    setFormData({ ...formData, whatsapp: value });
+  };
+
   const handleFinalizar = async () => {
     if (!formData.nome || !formData.whatsapp) {
       alert("Por favor, preencha seu nome e WhatsApp para continuarmos.");
@@ -32,7 +48,7 @@ export default function LeadFunnel() {
     setIsSubmitting(true);
 
     try {
-      // Fazendo a requisição real para a rota da API (Supabase)
+      // Requisição para salvar o lead (Supabase + n8n webhook)
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -47,14 +63,12 @@ export default function LeadFunnel() {
 
       console.log("✅ Lead qualificado e salvo com sucesso:", data);
       
-      // Monta a mensagem para o WhatsApp com base nos dados preenchidos
+      // Monta a mensagem final e redireciona
       const textoZap = `Olá, Éricles! Preenchi o formulário de análise estratégica.\n\n*Empresa:* ${formData.empresa}\n*Instagram:* ${formData.instagram}\n*Faturamento:* ${formData.faturamento}\n*Principal Desafio:* ${formData.gargalo}\n\nQuero agendar minha reunião.`;
       
-      // Substitua pelo seu número real
-      const seuNumero = "5584999999999"; 
+      const seuNumero = "558499145820"; 
       const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
       
-      // Redireciona o empresário para o seu WhatsApp já com a mensagem pronta
       window.location.href = zapLink;
 
     } catch (error) {
@@ -192,7 +206,14 @@ export default function LeadFunnel() {
                     <label className="text-[#a1a1aa] text-xs font-bold uppercase ml-1">WhatsApp para contato</label>
                     <div className="relative">
                       <Phone className="absolute left-4 top-4 text-[#a1a1aa]" size={18} />
-                      <input type="tel" value={formData.whatsapp} onChange={(e) => setFormData({...formData, whatsapp: e.target.value})} className="w-full p-4 pl-12 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" placeholder="(DD) 90000-0000" />
+                      <input 
+                        type="tel" 
+                        value={formData.whatsapp} 
+                        onChange={handlePhoneChange} 
+                        maxLength={15}
+                        className="w-full p-4 pl-12 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" 
+                        placeholder="(00) 90000-0000" 
+                      />
                     </div>
                   </div>
                 </div>
@@ -209,7 +230,7 @@ export default function LeadFunnel() {
             </button>
           )}
           <button 
-            disabled={isSubmitting || (step === 1 && !formData.faturamento) || (step === 2 && !formData.gargalo)} 
+            disabled={isSubmitting || (step === 1 && !formData.faturamento) || (step === 2 && !formData.gargalo) || (step === 4 && (!formData.nome || formData.whatsapp.length < 14))} 
             onClick={step === 4 ? handleFinalizar : nextStep} 
             className="flex-1 py-4 rounded-xl bg-[#ffca85] text-[#15141b] font-bold text-base hover:bg-[#e6b677] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,202,133,0.2)]"
           >
