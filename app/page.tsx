@@ -107,13 +107,11 @@ export default function Home() {
         .offer-wrapper::before { content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,202,133,0.08), transparent 50%); animation: pulseGlow 8s infinite; }
         .price-new { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; font-weight: 700; color: #fff; line-height: 1; display: block; margin: 10px 0 20px; text-shadow: 0 0 15px rgba(255,202,133,0.2); }
         
-        @keyframes pulse-gold-ring {
-            0% { box-shadow: 0 0 0 0 rgba(255, 202, 133, 0.7), inset 0 0 0 1px rgba(255,255,255,0.3); }
-            70% { box-shadow: 0 0 0 20px rgba(255, 202, 133, 0), inset 0 0 0 1px rgba(255,255,255,0.3); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 202, 133, 0), inset 0 0 0 1px rgba(255,255,255,0.3); }
-        }
-        .btn-super-offer { display: inline-block; padding: 22px 40px; border-radius: 14px; font-weight: 900; text-decoration: none; cursor: pointer; font-size: 1.3rem; text-align: center; background: var(--primary); color: #15141b; border: none; width: 100%; text-transform: uppercase; letter-spacing: 1px; animation: pulse-gold-ring 2s infinite; transition: transform 0.2s; position: relative; z-index: 10; margin-bottom: 15px; }
-        .btn-super-offer:hover { transform: scale(1.02); background: #e6b677; }
+        /* EFEITO 1: SHIMMER (VARREDURA) */
+        .btn-super-offer { display: inline-block; padding: 22px 40px; border-radius: 14px; font-weight: 900; text-decoration: none; cursor: pointer; font-size: 1.3rem; text-align: center; background: var(--primary); color: #15141b; border: none; width: 100%; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10; margin-bottom: 15px; overflow: hidden; }
+        .btn-super-offer:hover { transform: scale(1.02); background: #e6b677; box-shadow: 0 0 30px rgba(255, 202, 133, 0.4); }
+        .btn-super-offer::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); animation: shimmer 3s infinite; }
+        @keyframes shimmer { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
 
         /* FOOTER CORRIGIDO */
         .footer { padding: 60px 20px 80px; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 100px; background: transparent; }
