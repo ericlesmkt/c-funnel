@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import FacebookPixel from "@/components/FacebookPixel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chamalabs - Inscrições",
-  description: "Inscrições abertas para a nova turma",
+  title: "ChamaLabs - Consultoria Estratégica",
+  description: "Transforme seu conteúdo em vendas diárias. Aplique para o nosso diagnóstico e descubra o plano definitivo para o seu negócio.",
 };
 
 export default function RootLayout({
@@ -23,11 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <FacebookPixel />
       </body>
     </html>
   );

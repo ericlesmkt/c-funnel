@@ -62,6 +62,15 @@ export default function LeadFunnel() {
       }
 
       console.log("✅ Lead qualificado e salvo com sucesso:", data);
+
+      // DISPARO DO EVENTO PRO META ADS
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'Aplicacao_Plano_Definitivo',
+          value: 2500.00,
+          currency: 'BRL'
+        });
+      }
       
       // Monta a mensagem final e redireciona
       const textoZap = `Olá, Éricles! Preenchi o formulário de análise estratégica.\n\n*Empresa:* ${formData.empresa}\n*Instagram:* ${formData.instagram}\n*Faturamento:* ${formData.faturamento}\n*Principal Desafio:* ${formData.gargalo}\n\nQuero agendar minha reunião.`;
