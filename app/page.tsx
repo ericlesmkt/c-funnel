@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
 export default function Home() {
   return (
@@ -106,10 +107,6 @@ export default function Home() {
         .offer-wrapper::before { content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,202,133,0.08), transparent 50%); animation: pulseGlow 8s infinite; }
         .price-new { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; font-weight: 700; color: #fff; line-height: 1; display: block; margin: 10px 0 20px; text-shadow: 0 0 15px rgba(255,202,133,0.2); }
         
-        .check-list { list-style: none; margin-bottom: 14px; padding: 0; }
-        .check-list li { display: flex; gap: 12px; color: #e5e7eb; align-items: flex-start; font-size: 1.05rem; text-align: left; }
-        .check-icon { color: var(--primary); font-weight: bold; text-shadow: 0 0 10px var(--primary); min-width: 20px; margin-top: 2px; }
-
         @keyframes pulse-gold-ring {
             0% { box-shadow: 0 0 0 0 rgba(255, 202, 133, 0.7), inset 0 0 0 1px rgba(255,255,255,0.3); }
             70% { box-shadow: 0 0 0 20px rgba(255, 202, 133, 0), inset 0 0 0 1px rgba(255,255,255,0.3); }
@@ -148,14 +145,12 @@ export default function Home() {
             padding: 25px 20px; 
             background: linear-gradient(to top, rgba(15,14,19,0.95) 0%, transparent 100%); 
             z-index: 2; 
-            transition: padding-bottom 0.3s ease; /* Mudamos de transform para padding */
+            transition: padding-bottom 0.3s ease;
         }
         
         .duotone-card:hover .duotone-img { filter: grayscale(0%) contrast(1); transform: scale(1.05); }
         .duotone-card:hover .duotone-overlay { opacity: 0; }
-        .duotone-card:hover .duotone-content { padding-bottom: 35px; } /* Empurra o texto para cima sem descolar o fundo */
-
-        
+        .duotone-card:hover .duotone-content { padding-bottom: 35px; }
 
         /* FAQ VIP */
         .faq-item { border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 20px 24px; border-radius: 16px; margin-bottom: 12px; text-align: left; transition: all 0.3s ease; }
@@ -216,7 +211,7 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "25px", paddingTop: "20px" }}>
-              <p style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Resultados reais da Consultoria:</p>
+              <p style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Resultados reais da Imersão:</p>
               <div className="stats-grid">
                   <div className="stat-item">
                       <span className="stat-number text-success">15x</span>
@@ -245,28 +240,35 @@ export default function Home() {
 
       {/* SEÇÃO COMO FUNCIONA (PASSO A PASSO) */}
       <section className="container animate-enter" style={{ marginTop: "80px", marginBottom: "40px" }}>
-          <h2 className="text-center" style={{ marginBottom: "40px", fontSize: "2rem" }}>Como funciona na prática?</h2>
+          <h2 className="text-center" style={{ marginBottom: "40px", fontSize: "2rem" }}>A Rota dos 45 Dias</h2>
           
           <div className="aura-grid" style={{ marginTop: "0" }}>
               <div className="step-card">
                   <div className="step-letter">1</div>
                   <div>
                       <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Raio-X e Estratégia</h3>
-                      <p>Nossa primeira imersão. Analisamos seu negócio a fundo, entendemos suas margens e definimos a rota exata de crescimento.</p>
+                      <p>Nossa primeira imersão. Analisamos seu negócio a fundo, entendemos suas margens e definimos a linha editorial exata de crescimento.</p>
                   </div>
               </div>
               <div className="step-card">
                   <div className="step-letter">2</div>
                   <div>
-                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Entrega do Blueprint</h3>
-                      <p>Na segunda reunião, te entrego o mapa completo: linhas editoriais, roteiros magnéticos e a configuração das suas campanhas de tráfego.</p>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Blueprint e Gravação</h3>
+                      <p>Entrega dos roteiros magnéticos e início das gravações orientadas, aplicando as regras de posicionamento High-End.</p>
                   </div>
               </div>
               <div className="step-card">
                   <div className="step-letter">3</div>
                   <div>
                       <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Treinamento da Equipe</h3>
-                      <p>Sua equipe recebe acesso ao nosso portal para aprender a gravar e editar internamente, ganhando autonomia total.</p>
+                      <p>Sua equipe recebe acesso ao portal ChamaLabs para aprender a editar e masterizar os vídeos internamente, sem depender de agências.</p>
+                  </div>
+              </div>
+              <div className="step-card">
+                  <div className="step-letter">4</div>
+                  <div>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Tráfego e Correção de Rota</h3>
+                      <p>Nos últimos encontros, analisamos o desempenho dos vídeos e estruturamos as campanhas de Meta Ads para escalar suas vendas.</p>
                   </div>
               </div>
           </div>
@@ -279,7 +281,7 @@ export default function Home() {
                   <div style={{ display: "inline-block", padding: "4px 12px", background: "rgba(255,202,133,0.1)", color: "var(--primary)", borderRadius: "20px", fontSize: "0.8rem", fontWeight: "700", marginBottom: "15px" }}>TECNOLOGIA INCLUSA</div>
                   <h3 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>Portal ChamaLabs</h3>
                   <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", maxWidth: "600px" }}>
-                      Você não está comprando apenas consultoria, está levando uma plataforma corporativa. Sua equipe terá acesso a módulos práticos de edição no CapCut, fundamentos de gravação e roteirização rápida.
+                      Você não está comprando apenas encontros, está levando uma plataforma corporativa. Sua equipe terá acesso a módulos práticos de edição no CapCut, fundamentos de gravação e roteirização rápida.
                   </p>
               </div>
               <div style={{ width: "100%", height: "auto", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
@@ -291,6 +293,7 @@ export default function Home() {
               </div>
           </div>
       </section>
+
       {/* SEÇÃO DE AUTORIDADE (CARROSSEL DUOTONE E BIO) */}
       <section className="container animate-enter" style={{ marginBottom: "100px", marginTop: "40px" }}>
           <div style={{ textAlign: "center", marginBottom: "50px" }}>
@@ -330,7 +333,7 @@ export default function Home() {
 
           <div style={{ maxWidth: "750px", margin: "50px auto 0", textAlign: "center", padding: "0 20px" }}>
               <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7" }}>
-                  Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>. Não sou um "guru de internet" tentando te vender fórmula mágica. Sou um estrategista de negócios locais. Cansei de ver empresários excelentes perdendo clientes para concorrentes medíocres só porque não sabem se posicionar no digital. Criei o <strong>Plano Definitivo</strong> para instalar na sua empresa o mesmo sistema de captação que utilizo nos meus bastidores.
+                  Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>. Não sou um "guru de internet" tentando te vender fórmula mágica. Sou um estrategista de negócios locais. Cansei de ver empresários excelentes perdendo clientes para concorrentes medíocres só porque não sabem se posicionar no digital. Criei a <strong>Imersão Conteúdo High-End</strong> para instalar na sua empresa o mesmo sistema de captação visual que utilizo nos meus bastidores.
               </p>
           </div>
       </section>
@@ -343,58 +346,60 @@ export default function Home() {
               <div className="faq-item">
                   <details>
                       <summary>Meu nicho é muito específico, isso funciona pra mim?</summary>
-                      <p>Sim. O Plano Definitivo não é sobre "fazer dancinhas", é sobre fundamentos de atenção humana e conversão. Se o seu negócio resolve o problema de alguém na sua cidade, nós vamos construir a ponte para que esse cliente te encontre e compre de você.</p>
+                      <p>Sim. A Imersão Conteúdo High-End não é sobre "fazer dancinhas", é sobre fundamentos de atenção humana e conversão. Se o seu negócio resolve o problema de alguém na sua cidade, nós vamos construir a ponte visual para que esse cliente te encontre e compre de você.</p>
                   </details>
               </div>
               <div className="faq-item">
                   <details>
                       <summary>Qual a diferença entre isso e contratar uma agência tradicional?</summary>
-                      <p>A agência tradicional te faz refém dela e foca em "postagens bonitinhas". Nós construímos a máquina de vendas <strong>dentro</strong> da sua empresa. Eu mapeio a estratégia, entrego o funil pronto e treino você (ou alguém da sua equipe) para rodar tudo com total autonomia. Você vira o dono da sua própria aquisição.</p>
+                      <p>A agência tradicional te faz refém dela e foca em "postagens bonitinhas". Nós construímos a máquina de vendas <strong>dentro</strong> da sua empresa. Eu mapeio a estratégia nos encontros ao vivo e treino você (ou sua equipe) pelo Portal ChamaLabs para rodar tudo com total autonomia. Você vira o dono da sua própria aquisição.</p>
                   </details>
               </div>
               <div className="faq-item">
                   <details>
                       <summary>Preciso de uma equipe grande ou equipamentos caros?</summary>
-                      <p>De forma alguma. No Portal ChamaLabs, nós ensinamos o seu funcionário (ou você) a captar, editar e subir campanhas usando apenas um celular atual e ferramentas acessíveis. O que importa é a estrutura narrativa do vídeo, não se ele foi gravado com câmera de cinema.</p>
+                      <p>De forma alguma. No Portal ChamaLabs, nós ensinamos o seu funcionário (ou você) a captar, editar e subir campanhas usando apenas um celular atual e ferramentas acessíveis. O que importa é a estrutura narrativa e o enquadramento, não se o vídeo foi gravado com câmera de cinema.</p>
                   </details>
               </div>
           </div>
       </section>
 
-     {/* SEÇÃO DE OFERTA CLEAN E ALINHADA */}
-     <section id="offer" className="container">
-          <div className="offer-wrapper text-center" style={{ padding: "50px 30px" }}>
-              <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--primary)", letterSpacing: "2px", marginBottom: "15px" }}>O FIM DA TENTATIVA E ERRO</div>
+      {/* NOVA SEÇÃO DE OFERTA VIP */}
+      <section id="offer" className="container animate-enter" style={{ marginBottom: "100px" }}>
+          <div style={{ background: "linear-gradient(145deg, rgba(255,202,133,0.05) 0%, rgba(20,19,26,0.8) 100%)", border: "1px solid rgba(255,202,133,0.2)", borderRadius: "24px", padding: "60px 40px", maxWidth: "800px", margin: "0 auto", textAlign: "center", position: "relative", overflow: "hidden" }}>
               
-              <p className="offer-reason" style={{ maxWidth: "460px", margin: "0 auto 30px", fontSize: "0.95rem", lineHeight: "1.6", color: "var(--text-muted)" }}>
-                  Empresários de alto nível não compram "dicas", compram sistemas. Eu mapeio o seu gargalo, construo a rota e capacito a sua equipe.
+              <div style={{ position: "absolute", top: "-50%", left: "-50%", width: "200%", height: "200%", background: "radial-gradient(circle, rgba(255,202,133,0.05) 0%, transparent 60%)", pointerEvents: "none" }}></div>
+
+              <span style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>O Fim do Amadorismo</span>
+              <h2 style={{ fontSize: '2.5rem', marginTop: '15px', marginBottom: '20px' }}>Imersão Conteúdo High-End</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
+                  Pare de terceirizar a alma da sua empresa. Um ecossistema de 45 dias para treinar você ou sua equipe a produzir vídeos cinematográficos pelo celular e atrair clientes de alto valor.
               </p>
 
-              <h2 className="price-new" style={{ fontSize: "2.8rem", marginBottom: "35px", letterSpacing: "-1px" }}>Plano Definitivo</h2>
+              <div style={{ textAlign: "left", maxWidth: "550px", margin: "0 auto 40px", display: "flex", flexDirection: "column", gap: "15px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />
+                      <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>4 Encontros de Diretoria:</strong> Estratégia, análise de métricas e correção de rota ao vivo.</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />
+                      <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>Portal ChamaLabs:</strong> Acesso à nossa plataforma com aulas práticas de gravação e edição.</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />
+                      <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>Autonomia Total:</strong> Sua equipe dominando a captação sem depender de agências lentas.</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />
+                      <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>Investimento:</strong> R$ 1.997 (Condição exclusiva para aprovados na aplicação).</span>
+                  </div>
+              </div>
 
-              <ul className="check-list" style={{ display: "inline-block", marginBottom: "40px", width: "100%", maxWidth: "420px" }}>
-                  <li style={{ marginBottom: "16px", alignItems: "flex-start" }}>
-                      <span className="check-icon">✓</span> 
-                      <span><strong>Diagnóstico Clínico:</strong> 2 reuniões de estratégia e tráfego.</span>
-                  </li>
-                  <li style={{ marginBottom: "16px", alignItems: "flex-start" }}>
-                      <span className="check-icon">✓</span> 
-                      <span><strong>Blueprint de Vendas:</strong> O mapa exato de conteúdo e anúncios.</span>
-                  </li>
-                  <li style={{ marginBottom: "16px", alignItems: "flex-start" }}>
-                      <span className="check-icon">✓</span> 
-                      <span><strong>Autonomia:</strong> 1 ano de ChamaLabs para treinar sua equipe.</span>
-                  </li>
-                  <li style={{ marginBottom: "16px", alignItems: "flex-start" }}>
-                      <span className="check-icon">✓</span> 
-                      <span><strong>Networking:</strong> Acesso direto ao nosso comitê VIP.</span>
-                  </li>
-              </ul>
-
-              <Link href="/diagnostico" className="btn-super-offer" style={{ fontSize: "1.1rem", padding: "20px 40px" }}>PREENCHER APLICAÇÃO</Link>
-              
-              <p style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "20px", opacity: 0.8 }}>
-                  🔒 <strong>Aviso:</strong> Recomendado apenas para empresas que possuem capacidade de atendimento para absorver um novo volume de clientes diários.
+              <Link href="/diagnostico" className="btn-super-offer" style={{ fontSize: "1.1rem", padding: "20px 40px", width: "100%", maxWidth: "400px", display: "inline-block" }}>
+                  PREENCHER APLICAÇÃO
+              </Link>
+              <p style={{ marginTop: "20px", fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  Atenção: Preencher o formulário não garante sua vaga. Selecionamos apenas empresas com perfil de escala.
               </p>
           </div>
       </section>
@@ -406,7 +411,7 @@ export default function Home() {
 
       <div className="mobile-sticky">
           <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Consultoria Premium</span>
+              <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Imersão High-End</span>
               <span style={{ color: "var(--primary)", fontSize: "0.85rem" }}>Vagas Abertas</span>
           </div>
           <Link href="/diagnostico" className="sticky-btn">APLICAR</Link>
