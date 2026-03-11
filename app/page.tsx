@@ -73,21 +73,24 @@ export default function Home() {
         .hero { padding: 150px 0 60px; text-align: center; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 50px; background: rgba(255, 202, 133, 0.05); border: 1px solid rgba(255, 202, 133, 0.3); color: var(--primary); font-size: 0.8rem; font-weight: 700; margin-bottom: 24px; box-shadow: 0 0 20px rgba(255, 202, 133, 0.15); }
         .display-text { font-size: 2.8rem; margin-bottom: 20px; text-shadow: 0 10px 40px rgba(0,0,0,0.8); letter-spacing: -1px; line-height: 1.1; }
-        .sub-headline { color: var(--text-body-glass); font-size: 1rem; margin-bottom: 15px; max-width: 550px; margin-left: auto; margin-right: auto; font-weight: 500; }
+        .sub-headline { color: var(--text-body-glass); font-size: 1.05rem; margin-bottom: 15px; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 500; }
         .urgency-badge { display: inline-block; color: var(--alert); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,77,77,0.3); padding-bottom: 2px;}
 
         /* GLASS PANELS */
         .glass-panel { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight); border-bottom: 1px solid rgba(0,0,0,0.5); border-radius: 24px; box-shadow: var(--glass-shadow); margin: 40px auto; padding: 40px; max-width: 800px; text-align: center; position: relative; overflow: hidden; transition: transform 0.3s ease; }
         
-        /* LISTA DE DORES */
+        /* LISTA DE DORES E RESULTADOS */
         .pain-list { text-align: left; margin-top: 25px; display: grid; gap: 10px; }
         .pain-item { display: flex; align-items: flex-start; gap: 10px; color: var(--text-muted); font-size: 0.95rem; }
         .pain-icon { color: var(--alert); }
+        
+        .result-list { text-align: left; margin-top: 20px; display: grid; gap: 12px; }
+        .result-item { display: flex; align-items: center; gap: 10px; color: var(--text-body-glass); font-size: 1rem; }
 
         /* PROVA SOCIAL (STATS) */
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; text-align: center; }
         .stat-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 12px; }
-        .stat-number { display: block; font-size: 1.6rem; line-height: 1; margin-bottom: 5px; }
+        .stat-number { display: block; font-size: 1.6rem; line-height: 1; margin-bottom: 5px; font-weight: 800; }
         .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
         /* AUTORIDADE */
@@ -102,13 +105,21 @@ export default function Home() {
         .step-letter { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary); line-height: 1; text-shadow: 0 0 20px rgba(255, 202, 133, 0.3); min-width: 45px; }
         .step-card p { color: var(--text-body-glass); font-size: 0.95rem; margin: 5px 0 0 0;}
 
-        /* OFERTA */
+        /* TESTIMONIALS (PROVA SOCIAL) */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 40px; }
+        .testimonial-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; text-align: left; transition: 0.3s; }
+        .testimonial-card:hover { border-color: rgba(255,202,133,0.2); background: rgba(255,255,255,0.04); }
+        .test-before { color: var(--alert); font-size: 0.9rem; text-decoration: line-through; margin-bottom: 5px; }
+        .test-after { color: var(--success); font-size: 1.1rem; font-weight: 800; margin-bottom: 15px; }
+        .test-quote { color: var(--text-muted); font-size: 0.95rem; font-style: italic; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 15px; line-height: 1.6; }
+
+        /* OFERTA VIP */
         .offer-wrapper { margin: 60px auto; padding: 60px 30px; max-width: 550px; border: 1px solid var(--primary); box-shadow: 0 0 50px rgba(255, 202, 133, 0.15); background: linear-gradient(180deg, rgba(255,202,133,0.05) 0%, rgba(0,0,0,0) 100%); border-radius: 24px; position: relative; overflow: hidden; animation: fadeUp 1s ease-out; }
         .offer-wrapper::before { content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,202,133,0.08), transparent 50%); animation: pulseGlow 8s infinite; }
         .price-new { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; font-weight: 700; color: #fff; line-height: 1; display: block; margin: 10px 0 20px; text-shadow: 0 0 15px rgba(255,202,133,0.2); }
         
         /* EFEITO 1: SHIMMER (VARREDURA) */
-        .btn-super-offer { display: inline-block; padding: 22px 40px; border-radius: 14px; font-weight: 900; text-decoration: none; cursor: pointer; font-size: 1.3rem; text-align: center; background: var(--primary); color: #15141b; border: none; width: 100%; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10; margin-bottom: 15px; overflow: hidden; }
+        .btn-super-offer { display: inline-block; padding: 22px 40px; border-radius: 14px; font-weight: 900; text-decoration: none; cursor: pointer; font-size: 1.15rem; text-align: center; background: var(--primary); color: #15141b; border: none; width: 100%; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10; margin-bottom: 15px; overflow: hidden; }
         .btn-super-offer:hover { transform: scale(1.02); background: #e6b677; box-shadow: 0 0 30px rgba(255, 202, 133, 0.4); }
         .btn-super-offer::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); animation: shimmer 3s infinite; }
         @keyframes shimmer { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
@@ -182,17 +193,22 @@ export default function Home() {
           <div className="hero-badge">⚡ ANÁLISE ESTRATÉGICA</div>
           <h1 className="display-text">
               Transforme seu conteúdo em <br />
-              <span className="text-highlight">vendas diárias</span>.
+              <span className="text-highlight">vendas diárias</span> com um
+              sistema simples.
           </h1>
           
+          <p style={{ color: "var(--primary)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "15px" }}>
+              Para empresários que querem parar de depender de agência e assumir o controle da própria captação.
+          </p>
+          
           <p className="sub-headline">
-              Aprenda a criar vídeos que prendem a atenção, geram desejo e convertem seguidores em clientes para o seu negócio local.
+              Em 8 semanas, sua empresa aprende a criar conteúdo cinematográfico, gerar alcance qualificado e transformar seguidores em clientes.
           </p>
           
           <span className="urgency-badge">🔴 Vagas limitadas para acompanhamento individual</span>
 
-          <div style={{ maxWidth: "350px", margin: "20px auto 0" }}>
-              <Link href="/diagnostico" className="btn-primary">QUERO MEU DIAGNÓSTICO</Link>
+          <div style={{ maxWidth: "420px", margin: "20px auto 0" }}>
+              <Link href="/diagnostico" className="btn-primary">QUERO MEU DIAGNÓSTICO ESTRATÉGICO</Link>
           </div>
       </section>
 
@@ -208,20 +224,27 @@ export default function Home() {
               <div className="pain-item"><span className="pain-icon">❌</span> Sente que o concorrente sempre aparece mais.</div>
           </div>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "25px", paddingTop: "20px" }}>
-              <p style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Resultados reais da Imersão:</p>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", marginTop: "25px", paddingTop: "25px" }}>
+              <p style={{ fontSize: "1.05rem", fontWeight: "bold", marginBottom: "15px", color: "#fff" }}>Empresas que aplicam o método passam a ter:</p>
+              
+              <div className="result-list" style={{ marginBottom: "25px" }}>
+                  <div className="result-item"><CheckCircle2 size={18} className="text-success" /> Vídeos com milhares de visualizações qualificadas.</div>
+                  <div className="result-item"><CheckCircle2 size={18} className="text-success" /> Clientes chegando diariamente pelo Instagram.</div>
+                  <div className="result-item"><CheckCircle2 size={18} className="text-success" /> Autoridade absoluta no mercado local.</div>
+              </div>
+
               <div className="stats-grid">
                   <div className="stat-item">
-                      <span className="stat-number text-success">15x</span>
-                      <span className="stat-label">Mais Alcance</span>
+                      <span className="stat-number text-success">10K+</span>
+                      <span className="stat-label">Views</span>
                   </div>
                   <div className="stat-item">
-                      <span className="stat-number text-success">+180%</span>
-                      <span className="stat-label">Retenção</span>
+                      <span className="stat-number text-success">LEADS</span>
+                      <span className="stat-label">No Whatsapp</span>
                   </div>
                   <div className="stat-item">
-                      <span className="stat-number text-success">ROI</span>
-                      <span className="stat-label">Positivo</span>
+                      <span className="stat-number text-success">AGENDA</span>
+                      <span className="stat-label">Cheia</span>
                   </div>
               </div>
           </div>
@@ -236,37 +259,41 @@ export default function Home() {
           </div>
       </div>
 
-      {/* SEÇÃO COMO FUNCIONA (PASSO A PASSO) */}
+      {/* SEÇÃO COMO FUNCIONA (O MÉTODO AURA) */}
       <section className="container animate-enter" style={{ marginTop: "80px", marginBottom: "40px" }}>
-          <h2 className="text-center" style={{ marginBottom: "40px", fontSize: "2rem" }}>A Rota dos 45 Dias</h2>
+          <div className="text-center" style={{ marginBottom: "40px" }}>
+              <span style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>Propriedade Intelectual</span>
+              <h2 style={{ fontSize: "2.2rem", marginTop: "10px" }}>O Método A.U.R.A.</h2>
+              <p style={{ color: "var(--text-muted)", maxWidth: "500px", margin: "10px auto 0" }}>O passo a passo exato que sua equipe vai aplicar durante as nossas 8 semanas de Imersão.</p>
+          </div>
           
           <div className="aura-grid" style={{ marginTop: "0" }}>
               <div className="step-card">
-                  <div className="step-letter">1</div>
+                  <div className="step-letter">A</div>
                   <div>
-                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Raio-X e Estratégia</h3>
-                      <p>Nossa primeira imersão. Analisamos seu negócio a fundo, entendemos suas margens e definimos a linha editorial exata de crescimento.</p>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Análise</h3>
+                      <p>O Raio-X completo do seu marketing. Entendemos as suas margens, seu público local e diagnosticamos exatamente onde o seu funil está quebrando.</p>
                   </div>
               </div>
               <div className="step-card">
-                  <div className="step-letter">2</div>
+                  <div className="step-letter">U</div>
                   <div>
-                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Blueprint e Gravação</h3>
-                      <p>Entrega dos roteiros magnéticos e início das gravações orientadas, aplicando as regras de posicionamento High-End.</p>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Utilidade</h3>
+                      <p>Criação do Blueprint de conteúdo. Sua empresa vai receber os roteiros magnéticos validados e o mapeamento de tudo o que precisa ser gravado.</p>
                   </div>
               </div>
               <div className="step-card">
-                  <div className="step-letter">3</div>
+                  <div className="step-letter">R</div>
                   <div>
-                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Treinamento da Equipe</h3>
-                      <p>Sua equipe recebe acesso ao portal ChamaLabs para aprender a editar e masterizar os vídeos internamente, sem depender de agências.</p>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Retenção</h3>
+                      <p>O sistema de vídeos que prendem a atenção. Sua equipe aprende a gravar e editar material com estética High-End usando apenas o celular.</p>
                   </div>
               </div>
               <div className="step-card">
-                  <div className="step-letter">4</div>
+                  <div className="step-letter">A</div>
                   <div>
-                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Tráfego e Correção de Rota</h3>
-                      <p>Nos últimos encontros, analisamos o desempenho dos vídeos e estruturamos as campanhas de Meta Ads para escalar suas vendas.</p>
+                      <h3 style={{ color: "white", fontSize: "1.2rem", marginBottom: "6px" }}>Ação</h3>
+                      <p>Conteúdo que gera clientes. Pegamos o material validado e estruturamos campanhas de tráfego pago (Meta Ads) para lotar o seu WhatsApp.</p>
                   </div>
               </div>
           </div>
@@ -279,7 +306,7 @@ export default function Home() {
                   <div style={{ display: "inline-block", padding: "4px 12px", background: "rgba(255,202,133,0.1)", color: "var(--primary)", borderRadius: "20px", fontSize: "0.8rem", fontWeight: "700", marginBottom: "15px" }}>TECNOLOGIA INCLUSA</div>
                   <h3 style={{ fontSize: "1.8rem", marginBottom: "10px" }}>Portal ChamaLabs</h3>
                   <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", maxWidth: "600px" }}>
-                      Você não está comprando apenas encontros, está levando uma plataforma corporativa. Sua equipe terá acesso a módulos práticos de edição no CapCut, fundamentos de gravação e roteirização rápida.
+                      Você não está comprando apenas encontros no Zoom, está levando uma plataforma corporativa. Sua equipe terá acesso a módulos práticos de edição no CapCut, fundamentos de gravação e roteirização rápida para ganhar autonomia total.
                   </p>
               </div>
               <div style={{ width: "100%", height: "auto", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
@@ -292,8 +319,27 @@ export default function Home() {
           </div>
       </section>
 
+      {/* SEÇÃO PROVA SOCIAL (OS BASTIDORES DO RESULTADO) */}
+      <section className="container animate-enter" style={{ marginBottom: "100px" }}>
+          <h2 className="text-center" style={{ marginBottom: "40px", fontSize: "2.2rem" }}>O que acontece na prática</h2>
+          
+          <div className="testimonial-grid">
+              <div className="testimonial-card">
+                  <div className="test-before">Antes: Instagram vitrine, sem engajamento</div>
+                  <div className="test-after">Depois: Vídeos locais com +20k views</div>
+                  <p className="test-quote">"Paramos de postar arte genérica do Canva e aplicamos os roteiros do método. Em poucos dias, os vídeos viralizaram na região e o WhatsApp começou a receber orçamentos de quem assistiu."</p>
+              </div>
+              
+              <div className="testimonial-card">
+                  <div className="test-before">Antes: Refém de agência por R$ 1.500/mês</div>
+                  <div className="test-after">Depois: Equipe interna dominando a captação</div>
+                  <p className="test-quote">"Cancelamos o contrato com a agência. Com o acesso ao Portal ChamaLabs, nossa equipe grava os takes de manhã, edita no celular e os leads chegam à tarde. Autonomia e lucro."</p>
+              </div>
+          </div>
+      </section>
+
       {/* SEÇÃO DE AUTORIDADE (CARROSSEL DUOTONE E BIO) */}
-      <section className="container animate-enter" style={{ marginBottom: "100px", marginTop: "40px" }}>
+      <section className="container animate-enter" style={{ marginBottom: "100px" }}>
           <div style={{ textAlign: "center", marginBottom: "50px" }}>
               <span style={{ color: 'var(--primary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>Quem está nos bastidores</span>
               <h2 style={{ fontSize: '2.2rem', marginTop: '10px' }}>O Arquiteto da Máquina</h2>
@@ -329,9 +375,9 @@ export default function Home() {
               </div>
           </div>
 
-          <div style={{ maxWidth: "750px", margin: "50px auto 0", textAlign: "center", padding: "0 20px" }}>
+          <div style={{ maxWidth: "800px", margin: "50px auto 0", textAlign: "center", padding: "0 20px" }}>
               <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7" }}>
-                  Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>. Não sou um "guru de internet" tentando te vender fórmula mágica. Sou um estrategista de negócios locais. Cansei de ver empresários excelentes perdendo clientes para concorrentes medíocres só porque não sabem se posicionar no digital. Criei a <strong>Imersão Conteúdo High-End</strong> para instalar na sua empresa o mesmo sistema de captação visual que utilizo nos meus bastidores.
+                  Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>. Não sou um "guru de internet" tentando te vender fórmula mágica. Sou um estrategista de negócios locais. <strong style={{ color: "var(--primary)" }}>Já gerei milhões de visualizações e participei de campanhas de alto nível para artistas nacionais e grandes projetos.</strong> Cansei de ver empresários excelentes perdendo clientes para concorrentes medíocres só porque não sabem se posicionar no digital. Criei a <strong>Imersão Conteúdo High-End</strong> para instalar na sua empresa o mesmo sistema de captação visual que utilizo nos meus bastidores.
               </p>
           </div>
       </section>
@@ -344,7 +390,7 @@ export default function Home() {
               <div className="faq-item">
                   <details>
                       <summary>Meu nicho é muito específico, isso funciona pra mim?</summary>
-                      <p>Sim. A Imersão Conteúdo High-End não é sobre "fazer dancinhas", é sobre fundamentos de atenção humana e conversão. Se o seu negócio resolve o problema de alguém na sua cidade, nós vamos construir a ponte visual para que esse cliente te encontre e compre de você.</p>
+                      <p>Sim. O Método AURA não é sobre "fazer dancinhas", é sobre fundamentos de atenção humana e conversão. Se o seu negócio resolve o problema de alguém na sua cidade, nós vamos construir a ponte visual para que esse cliente te encontre e compre de você.</p>
                   </details>
               </div>
               <div className="faq-item">
@@ -371,7 +417,7 @@ export default function Home() {
               <span style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>O Fim do Amadorismo</span>
               <h2 style={{ fontSize: '2.5rem', marginTop: '15px', marginBottom: '20px' }}>Imersão Conteúdo High-End</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-                  Pare de terceirizar a alma da sua empresa. Um ecossistema de 45 dias para treinar você ou sua equipe a produzir vídeos cinematográficos pelo celular e atrair clientes de alto valor.
+                  Pare de terceirizar a alma da sua empresa. Um ecossistema de 8 semanas para treinar você ou sua equipe a produzir vídeos cinematográficos pelo celular e atrair clientes de alto valor.
               </p>
 
               <div style={{ textAlign: "left", maxWidth: "550px", margin: "0 auto 40px", display: "flex", flexDirection: "column", gap: "15px" }}>
@@ -393,11 +439,11 @@ export default function Home() {
                   </div>
               </div>
 
-              <Link href="/diagnostico" className="btn-super-offer" style={{ fontSize: "1.1rem", padding: "20px 40px", width: "100%", maxWidth: "400px", display: "inline-block" }}>
-                  PREENCHER APLICAÇÃO
+              <Link href="/diagnostico" className="btn-super-offer" style={{ fontSize: "1.1rem", padding: "20px 40px", width: "100%", maxWidth: "450px", display: "inline-block" }}>
+                  QUERO MEU DIAGNÓSTICO ESTRATÉGICO
               </Link>
               <p style={{ marginTop: "20px", fontSize: "0.85rem", color: "var(--text-muted)" }}>
-                  Atenção: Preencher o formulário não garante sua vaga. Selecionamos apenas empresas com perfil de escala.
+                  Atenção: Preencher o formulário não garante sua vaga. Apenas 10 empresas serão aceitas nesta turma piloto.
               </p>
           </div>
       </section>
