@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ChamaLabs - Consultoria Estratégica",
+  title: "ChamaLabs - Análise Estratégica",
   description: "Transforme seu conteúdo em vendas diárias. Aplique para o nosso diagnóstico e descubra o plano definitivo para o seu negócio.",
 };
 
