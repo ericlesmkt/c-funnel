@@ -434,7 +434,7 @@ export default function Home() {
                       <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>Autonomia Total:</strong> Sua equipe dominando a captação sem depender de agências lentas.</span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />
+                      <CheckCircle2 color="var(--primary)" size={24} style={{ minWidth: "24px" }} />xx``
                       <span style={{ fontSize: "1.05rem", color: "#edecee" }}><strong>Investimento:</strong> R$ 1.997 (Condição exclusiva para aprovados na aplicação).</span>
                   </div>
               </div>

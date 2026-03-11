@@ -8,9 +8,19 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function POST(request: Request) {
   try {
-    // 1. Recebe os dados enviados pelo funil (Frontend)
+    // 1. Recebe TODOS os dados enviados pelo novo funil
     const body = await request.json();
-    const { faturamento, gargalo, nome, empresa, instagram, whatsapp } = body;
+    const { 
+      nicho, 
+      faturamento, 
+      seguidores, 
+      statusConteudo, 
+      gargalo, 
+      nome, 
+      empresa, 
+      instagram, 
+      whatsapp 
+    } = body;
 
     // Validação básica
     if (!nome || !whatsapp) {
@@ -29,9 +39,12 @@ export async function POST(request: Request) {
           empresa,
           instagram,
           whatsapp,
+          nicho,               // Novo campo
           faturamento,
+          seguidores,          // Novo campo
+          status_conteudo: statusConteudo, // Novo campo (padrão snake_case para banco)
           gargalo,
-          status: 'novo', // Status inicial para o seu pipeline
+          status: 'novo', 
           criado_em: new Date().toISOString(),
         }
       ])
@@ -42,8 +55,7 @@ export async function POST(request: Request) {
       throw new Error(error.message);
     }
 
-    // 3. Dispara o Webhook para o n8n (Sua notificação em tempo real)
-    // O n8n vai escutar isso e te mandar uma mensagem no WhatsApp com os dados do empresário
+    // 3. Dispara o Webhook para o n8n com o payload completo
     const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
     
     if (n8nWebhookUrl) {
@@ -53,19 +65,18 @@ export async function POST(request: Request) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             event: 'novo_lead_high_ticket',
-            lead: data[0] // Manda os dados recém-salvos no banco
+            lead: data[0] // Manda os dados recém-salvos no banco (agora completo)
           }),
         });
         console.log('✅ Alerta enviado para o n8n com sucesso.');
       } catch (n8nError) {
-        // Se o n8n falhar, o log avisa, mas NÃO trava o processo do cliente
         console.error('⚠️ Erro ao notificar o n8n (mas o lead foi salvo no banco):', n8nError);
       }
     } else {
       console.warn('⚠️ N8N_WEBHOOK_URL não configurada no arquivo .env');
     }
 
-    // 4. Retorna sucesso para o Frontend redirecionar o cliente para o seu WhatsApp
+    // 4. Retorna sucesso para o Frontend
     return NextResponse.json({ 
       sucesso: true, 
       mensagem: 'Lead cadastrado com sucesso',
