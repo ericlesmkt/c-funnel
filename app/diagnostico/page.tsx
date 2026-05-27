@@ -52,45 +52,25 @@ export default function LeadFunnel() {
 
     setIsSubmitting(true);
 
-    try {
-      // O POST PARA A SUA API (QUE CHAMA O SUPABASE E O N8N)
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+    // DISPARO DO EVENTO PRO META ADS
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead', {
+        content_name: 'Aplicacao_Imersao_HighEnd',
+        value: 599.20,
+        currency: 'BRL'
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Falha ao salvar o lead no banco de dados.');
-      }
-
-      console.log("✅ Lead qualificado e salvo com sucesso:", data);
-
-      // DISPARO DO EVENTO PRO META ADS
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead', {
-          content_name: 'Aplicacao_Imersao_HighEnd',
-          value: 1997.00,
-          currency: 'BRL'
-        });
-      }
-
-      const textoZap = `Olá, Éricles! Preenchi a aplicação para o Programa de Aceleração (Método N.A.V.E.).\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
-
-      const seuNumero = "558499145820";
-      const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
-
-      // window.location.href = zapLink;
-      setStep(6);
-
-    } catch (error) {
-      console.error("❌ Erro ao salvar lead:", error);
-      alert("Ocorreu um erro ao processar seus dados. Tente novamente.");
-    } finally {
-      setIsSubmitting(false);
     }
+
+    const textoZap = `Olá, Éricles! Preenchi a aplicação para o Método N.A.V.E.\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
+
+    const seuNumero = "5584991465820";
+    const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
+
+    // Redireciona o lead direto para o WhatsApp
+    window.location.href = zapLink;
+    
+    setStep(6);
+    setIsSubmitting(false);
   };
 
   return (
@@ -100,7 +80,7 @@ export default function LeadFunnel() {
 
       {/* HEADER DE NAVEGAÇÃO */}
       <a href="/" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#050a10]/85 backdrop-blur-xl border-b border-[#1e293b]">
-        <span className="text-[#e2e8f0] text-sm font-bold tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>PROGRAMA DE ACELERAÇÃO</span>
+        <span className="text-[#e2e8f0] text-sm font-bold tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>MÉTODO N.A.V.E.</span>
         <span className="text-[#94a3b8] text-xs flex items-center gap-1.5 hover:text-[#00ffcc] transition-colors">
           <ArrowLeft size={14} /> Voltar
         </span>
@@ -218,7 +198,8 @@ export default function LeadFunnel() {
                     {[
                       "Não gravo (falta tempo ou tenho vergonha)",
                       "Delego para agência (mas os posts não vendem)",
-                      "Tento gravar internamente (mas sinto que fica amador)"
+                      "Tento gravar internamente (mas sinto que fica amador)",
+                      "Já gravo bem e com frequência (mas busco escalar minhas vendas)"
                     ].map((status) => (
                       <button
                         key={status}
