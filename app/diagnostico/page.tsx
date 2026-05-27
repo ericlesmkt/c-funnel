@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, ArrowLeft, TrendingUp, Target, AlertCircle,
   Building2, User, Instagram, Phone, Loader2, CheckCircle2,
-  Briefcase, Users, Video
+  Briefcase, Users, Video, MessageCircle
 } from "lucide-react";
 
 export default function LeadFunnel() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   const [formData, setFormData] = useState({
     nicho: "",
@@ -52,25 +53,45 @@ export default function LeadFunnel() {
 
     setIsSubmitting(true);
 
-    // DISPARO DO EVENTO PRO META ADS
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', {
-        content_name: 'Aplicacao_Imersao_HighEnd',
-        value: 599.20,
-        currency: 'BRL'
+    try {
+      // O POST PARA A SUA API (QUE CHAMA O SUPABASE E O N8N)
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Falha ao salvar o lead no banco de dados.');
+      }
+
+      console.log("✅ Lead qualificado e salvo com sucesso:", data);
+
+      // DISPARO DO EVENTO PRO META ADS
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'Aplicacao_Imersao_HighEnd',
+          value: 599.20,
+          currency: 'BRL'
+        });
+      }
+
+      const textoZap = `Olá, Éricles! Preenchi a aplicação para o Método N.A.V.E.\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
+
+      const seuNumero = "5584991465820";
+      const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
+
+      // Salva a URL para o botão na tela 6
+      setWhatsappUrl(zapLink);
+      setStep(6);
+    } catch (error) {
+      console.error("❌ Erro ao salvar lead:", error);
+      alert("Ocorreu um erro ao processar seus dados. Tente novamente.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    const textoZap = `Olá, Éricles! Preenchi a aplicação para o Método N.A.V.E.\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
-
-    const seuNumero = "5584991465820";
-    const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
-
-    // Redireciona o lead direto para o WhatsApp
-    window.location.href = zapLink;
-    
-    setStep(6);
-    setIsSubmitting(false);
   };
 
   return (
@@ -225,8 +246,8 @@ export default function LeadFunnel() {
 
                 <div className="space-y-3">
                   {[
-                    "Não sei o que postar (falta de ideias estratégicas)",
-                    "Tenho seguidores, mas eles não geram orçamentos",
+                    "Gasto muito tempo com marketing, mas não vejo retorno em vendas.",
+                    "Atraio curiosos, mas poucos clientes dispostos a pagar meu preço.",
                     "Dependo apenas de indicação boca-a-boca",
                     "Não faço anúncios patrocinados (Tráfego Pago)"
                   ].map((gargalo) => (
@@ -327,8 +348,15 @@ export default function LeadFunnel() {
                   </div>
                 </div>
 
-                <div className="mt-6 py-3 px-5 rounded-xl bg-[#00ffcc]/5 border border-[#00ffcc]/20">
-                  <p className="text-sm text-[#00ffcc] font-medium">📱 Fique atento(a) ao seu WhatsApp nas próximas 24h.</p>
+                <div className="mt-8 w-full max-w-[320px]">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all shadow-[0_0_20px_rgba(0,255,204,0.3)]"
+                  >
+                    <MessageCircle size={20} /> Liberar minha análise no WhatsApp
+                  </a>
                 </div>
               </motion.div>
             )}
