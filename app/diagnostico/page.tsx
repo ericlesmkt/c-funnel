@@ -322,41 +322,45 @@ export default function LeadFunnel() {
                 <div className="w-24 h-24 bg-[#00ffcc]/10 rounded-full flex items-center justify-center mb-2 border border-[#00ffcc]/20">
                   <CheckCircle2 className="text-[#00ffcc]" size={48} />
                 </div>
-                <h2 className="text-3xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Aplicação Enviada!</h2>
+                <h2 className="text-3xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Quase lá! 🚀</h2>
                 <p className="text-[#94a3b8] text-base max-w-[340px] mx-auto leading-relaxed">
-                  Seus dados foram recebidos com sucesso. Agora, veja o que vai acontecer:
+                  O raio-x do seu negócio foi gerado. <strong className="text-[#e2e8f0]">Falta apenas 1 passo</strong> para liberar sua pré-análise:
                 </p>
 
-                <div className="w-full max-w-[320px] text-left space-y-4 mt-4">
+                <div className="w-full max-w-[320px] text-left space-y-4 mt-4 bg-[#1e293b]/30 p-5 rounded-2xl border border-[#1e293b]">
                   <div className="flex gap-3 items-start">
                     <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-[#00ffcc] text-xs font-bold">1</span>
                     </div>
-                    <p className="text-[#e2e8f0] text-sm"><strong>Pré-análise</strong> — Nossa equipe vai analisar o dossiê do seu negócio.</p>
+                    <p className="text-[#e2e8f0] text-sm">Toque no botão abaixo para nos enviar seu dossiê diretamente no WhatsApp.</p>
                   </div>
                   <div className="flex gap-3 items-start">
                     <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-[#00ffcc] text-xs font-bold">2</span>
                     </div>
-                    <p className="text-[#e2e8f0] text-sm"><strong>Entrevista</strong> — Entraremos em contato pelo WhatsApp para a conversa inicial.</p>
+                    <p className="text-[#e2e8f0] text-sm">Faremos uma análise rápida do seu perfil e do momento atual do seu negócio.</p>
                   </div>
                   <div className="flex gap-3 items-start">
                     <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-[#00ffcc] text-xs font-bold">3</span>
                     </div>
-                    <p className="text-[#e2e8f0] text-sm"><strong>Aprovação</strong> — Se aprovado(a), liberaremos sua vaga na Turma Beta.</p>
+                    <p className="text-[#e2e8f0] text-sm">Se houver algum consultor online, você já recebe um <strong>retorno imediato</strong> para adiantar o processo.</p>
                   </div>
                 </div>
 
-                <div className="mt-8 w-full max-w-[320px]">
+                <div className="mt-8 w-full max-w-[320px] mx-auto flex flex-col items-center">
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all shadow-[0_0_20px_rgba(0,255,204,0.3)]"
+                    className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all shadow-[0_0_20px_rgba(0,255,204,0.3)] animate-[pulse_2s_ease-in-out_infinite]"
                   >
-                    <MessageCircle size={20} /> Liberar minha análise no WhatsApp
+                    <MessageCircle size={20} /> Enviar Dossiê no WhatsApp
                   </a>
+                  <p className="text-[#94a3b8] text-xs mt-4 font-medium flex items-center gap-1.5 text-center px-2">
+                    <span className="text-xl">💡</span>
+                    Envie a mensagem agora. Se nossa equipe estiver online, te atendemos na mesma hora.
+                  </p>
                 </div>
               </motion.div>
             )}
