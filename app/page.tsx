@@ -233,7 +233,7 @@ export default function Home() {
             <header className="header">
                 <div className="container nav-content">
                     <Link href="/" className="logo">
-                        PROGRAMA DE ACELERAÇÃO
+                        MÉTODO N.A.V.E.
                     </Link>
                     <Link href="/diagnostico" className="btn-header-glow">APLICAÇÃO</Link>
                 </div>
@@ -524,7 +524,7 @@ export default function Home() {
                     </li>
                     <li>
                         <XCircle size={20} color="var(--alert)" />
-                        <span>Você quer <strong style={{ color: "#fff" }}>delegar tudo</strong> e não colocar a mão na massa. O programa de aceleração forma donos, não espectadores.</span>
+                        <span>Você quer <strong style={{ color: "#fff" }}>delegar tudo</strong> e não colocar a mão na massa. O Método N.A.V.E. forma donos, não espectadores.</span>
                     </li>
                 </ul>
             </section>
@@ -541,14 +541,14 @@ export default function Home() {
                             TURMA BETA — GRUPO RESTRITO
                         </span>
                         <h2 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>Tudo Que Você Precisa Para Decolar</h2>
-                        <p style={{ color: "var(--text-muted)", fontSize: "1rem", maxWidth: "550px", margin: "0 auto" }}>Veja o que está incluso na sua vaga da Turma Beta do Programa de Aceleração:</p>
+                        <p style={{ color: "var(--text-muted)", fontSize: "1rem", maxWidth: "550px", margin: "0 auto" }}>Veja o que está incluso na sua vaga da Turma Beta do Método N.A.V.E.:</p>
                     </div>
 
                     <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "10px", marginTop: "30px" }}>
                         <table className="offer-table">
                             <tbody>
                                 <tr>
-                                    <td><strong>Mentoria (Programa de Aceleração)</strong> (4 Encontros Estratégicos Ao Vivo via Zoom)</td>
+                                    <td><strong>Mentoria (Método N.A.V.E.)</strong> (4 Encontros Estratégicos Ao Vivo via Zoom)</td>
                                     <td style={{ textAlign: "right", whiteSpace: "nowrap" }}><span className="price-strike">R$ 497,00</span></td>
                                 </tr>
                                 <tr>
@@ -642,7 +642,7 @@ export default function Home() {
                 </div>
 
                 <details className="faq-item">
-                    <summary>Para quem é o Programa de Aceleração?</summary>
+                    <summary>Para quem é o Método N.A.V.E.?</summary>
                     <p>Para profissionais liberais, donos de negócios e especialistas que têm dificuldade em empacotar seu conhecimento para atrair bons clientes pelas redes sociais, sem precisar desvalorizar o próprio serviço. Se você é dentista, advogado, arquiteto, nutricionista, dono de clínica, loja ou agência — essa mentoria foi pensada para você.</p>
                 </details>
                 <details className="faq-item">
@@ -675,7 +675,7 @@ export default function Home() {
 
             <div className="mobile-sticky">
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Programa N.A.V.E.</span>
+                    <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Método N.A.V.E.</span>
                     <span style={{ color: "var(--primary)", fontSize: "0.85rem" }}>Aplicação Liberada</span>
                 </div>
                 <Link href="/diagnostico" className="sticky-btn">APLICAR</Link>

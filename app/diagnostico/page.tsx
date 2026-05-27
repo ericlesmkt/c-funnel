@@ -2,17 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowRight, ArrowLeft, TrendingUp, Target, AlertCircle, 
+import {
+  ArrowRight, ArrowLeft, TrendingUp, Target, AlertCircle,
   Building2, User, Instagram, Phone, Loader2, CheckCircle2,
-  Briefcase, Users, Video, MessageCircle
+  Briefcase, Users, Video
 } from "lucide-react";
 
 export default function LeadFunnel() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [whatsappUrl, setWhatsappUrl] = useState("");
-  
+
   const [formData, setFormData] = useState({
     nicho: "",
     faturamento: "",
@@ -32,16 +31,16 @@ export default function LeadFunnel() {
 
   // Função para aplicar a máscara (DD) 9XXXX-XXXX
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/\D/g, ""); 
-    if (value.length > 11) value = value.slice(0, 11); 
-    
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.length > 11) value = value.slice(0, 11);
+
     if (value.length > 2) {
       value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
     }
     if (value.length > 7) {
       value = value.replace(/(\d)(\d{4})$/, "$1-$2");
     }
-    
+
     setFormData({ ...formData, whatsapp: value });
   };
 
@@ -73,17 +72,17 @@ export default function LeadFunnel() {
       if (typeof window !== 'undefined' && (window as any).fbq) {
         (window as any).fbq('track', 'Lead', {
           content_name: 'Aplicacao_Imersao_HighEnd',
-          value: 599.20,
+          value: 1997.00,
           currency: 'BRL'
         });
       }
-      
+
       const textoZap = `Olá, Éricles! Preenchi a aplicação para o Programa de Aceleração (Método N.A.V.E.).\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
-      
-      const seuNumero = "558499145820"; 
+
+      const seuNumero = "558499145820";
       const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
-      
-      setWhatsappUrl(zapLink);
+
+      // window.location.href = zapLink;
       setStep(6);
 
     } catch (error) {
@@ -108,7 +107,7 @@ export default function LeadFunnel() {
       </a>
 
       <div className="w-full max-w-md z-10 flex flex-col min-h-[85vh] justify-between pt-8">
-        
+
         {/* BARRA DE PROGRESSO */}
         {step < 6 && (
           <div className="space-y-6 mt-8">
@@ -117,7 +116,7 @@ export default function LeadFunnel() {
               <span className="text-[#00ffcc] font-medium text-xs bg-[#00ffcc]/10 border border-[#00ffcc]/20 px-3 py-1 rounded-full">Etapa {step} de {totalSteps}</span>
             </div>
             <div className="w-full h-1.5 bg-[#1e293b] rounded-full overflow-hidden">
-              <motion.div 
+              <motion.div
                 className="h-full bg-[#00ffcc]"
                 initial={{ width: "20%" }}
                 animate={{ width: `${(step / totalSteps) * 100}%` }}
@@ -129,7 +128,7 @@ export default function LeadFunnel() {
 
         <div className="flex-1 relative mt-10">
           <AnimatePresence mode="wait">
-            
+
             {/* ETAPA 1: O NICHO (Ancoragem) */}
             {step === 1 && (
               <motion.div key="step1" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
@@ -138,7 +137,7 @@ export default function LeadFunnel() {
                   <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual é o seu mercado?</h2>
                 </div>
                 <p className="text-[#94a3b8] text-sm mb-6">Precisamos entender o perfil do seu negócio para validar a aplicação.</p>
-                
+
                 <div className="space-y-3">
                   {[
                     "Saúde, Estética ou Clínica",
@@ -147,9 +146,9 @@ export default function LeadFunnel() {
                     "Alimentação / Delivery",
                     "Outro nicho"
                   ].map((nicho) => (
-                    <button 
-                      key={nicho} 
-                      onClick={() => { setFormData({ ...formData, nicho: nicho }); setTimeout(nextStep, 300); }} 
+                    <button
+                      key={nicho}
+                      onClick={() => { setFormData({ ...formData, nicho: nicho }); setTimeout(nextStep, 300); }}
                       className={`w-full p-4 rounded-xl text-left transition-all border text-sm font-medium ${formData.nicho === nicho ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       {nicho}
@@ -163,7 +162,7 @@ export default function LeadFunnel() {
             {/* ETAPA 2: FATURAMENTO (O Filtro Financeiro) */}
             {step === 2 && (
               <motion.div key="step2" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
-                 <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="p-2.5 bg-[#1e293b] rounded-lg"><TrendingUp className="text-[#00ffcc]" size={20} /></div>
                   <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual o momento atual do negócio?</h2>
                 </div>
@@ -174,9 +173,9 @@ export default function LeadFunnel() {
                     { id: "10k-50k", label: "De R$ 10.000 a R$ 50.000 / mês" },
                     { id: "mais-50k", label: "Acima de R$ 50.000 / mês" }
                   ].map((op) => (
-                    <button 
-                      key={op.id} 
-                      onClick={() => { setFormData({ ...formData, faturamento: op.label }); setTimeout(nextStep, 300); }} 
+                    <button
+                      key={op.id}
+                      onClick={() => { setFormData({ ...formData, faturamento: op.label }); setTimeout(nextStep, 300); }}
                       className={`w-full p-5 rounded-xl flex items-center justify-between transition-all border ${formData.faturamento === op.label ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       <span className="font-medium">{op.label}</span>
@@ -201,9 +200,9 @@ export default function LeadFunnel() {
                     <label className="text-[#94a3b8] text-xs font-bold uppercase ml-1">Volume de Seguidores</label>
                     <div className="relative">
                       <Users className="absolute left-4 top-4 text-[#94a3b8]" size={18} />
-                      <select 
+                      <select
                         value={formData.seguidores}
-                        onChange={(e) => setFormData({...formData, seguidores: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, seguidores: e.target.value })}
                         className="w-full p-4 pl-12 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm appearance-none"
                       >
                         <option value="" disabled>Selecione uma opção...</option>
@@ -215,15 +214,15 @@ export default function LeadFunnel() {
                   </div>
 
                   <div className="space-y-3 mt-4">
-                     <label className="text-[#94a3b8] text-xs font-bold uppercase ml-1">Como você produz conteúdo hoje?</label>
+                    <label className="text-[#94a3b8] text-xs font-bold uppercase ml-1">Como você produz conteúdo hoje?</label>
                     {[
                       "Não gravo (falta tempo ou tenho vergonha)",
                       "Delego para agência (mas os posts não vendem)",
                       "Tento gravar internamente (mas sinto que fica amador)"
                     ].map((status) => (
-                      <button 
-                        key={status} 
-                        onClick={() => { setFormData({ ...formData, statusConteudo: status }); }} 
+                      <button
+                        key={status}
+                        onClick={() => { setFormData({ ...formData, statusConteudo: status }); }}
                         className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.statusConteudo === status ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                       >
                         {status}
@@ -242,7 +241,7 @@ export default function LeadFunnel() {
                   <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual o seu maior obstáculo?</h2>
                 </div>
                 <p className="text-[#94a3b8] text-sm mb-6">Onde o processo trava na hora de atrair clientes?</p>
-                
+
                 <div className="space-y-3">
                   {[
                     "Não sei o que postar (falta de ideias estratégicas)",
@@ -250,9 +249,9 @@ export default function LeadFunnel() {
                     "Dependo apenas de indicação boca-a-boca",
                     "Não faço anúncios patrocinados (Tráfego Pago)"
                   ].map((gargalo) => (
-                    <button 
-                      key={gargalo} 
-                      onClick={() => { setFormData({ ...formData, gargalo: gargalo }); setTimeout(nextStep, 300); }} 
+                    <button
+                      key={gargalo}
+                      onClick={() => { setFormData({ ...formData, gargalo: gargalo }); setTimeout(nextStep, 300); }}
                       className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.gargalo === gargalo ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       {gargalo}
@@ -273,18 +272,18 @@ export default function LeadFunnel() {
 
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
-                     <div className="space-y-1">
+                    <div className="space-y-1">
                       <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Seu Nome</label>
                       <div className="relative">
                         <User className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
-                        <input type="text" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Nome" />
+                        <input type="text" value={formData.nome} onChange={(e) => setFormData({ ...formData, nome: e.target.value })} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Nome" />
                       </div>
                     </div>
                     <div className="space-y-1">
                       <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Empresa</label>
                       <div className="relative">
                         <Target className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
-                        <input type="text" value={formData.empresa} onChange={(e) => setFormData({...formData, empresa: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Marca" />
+                        <input type="text" value={formData.empresa} onChange={(e) => setFormData({ ...formData, empresa: e.target.value })} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Marca" />
                       </div>
                     </div>
                   </div>
@@ -293,7 +292,7 @@ export default function LeadFunnel() {
                     <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Instagram do Negócio</label>
                     <div className="relative">
                       <Instagram className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
-                      <input type="text" value={formData.instagram} onChange={(e) => setFormData({...formData, instagram: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="@suaempresa" />
+                      <input type="text" value={formData.instagram} onChange={(e) => setFormData({ ...formData, instagram: e.target.value })} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="@suaempresa" />
                     </div>
                   </div>
 
@@ -301,13 +300,13 @@ export default function LeadFunnel() {
                     <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">WhatsApp de Contato</label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
-                      <input 
-                        type="tel" 
-                        value={formData.whatsapp} 
-                        onChange={handlePhoneChange} 
+                      <input
+                        type="tel"
+                        value={formData.whatsapp}
+                        onChange={handlePhoneChange}
                         maxLength={15}
-                        className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" 
-                        placeholder="(00) 90000-0000" 
+                        className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm"
+                        placeholder="(00) 90000-0000"
                       />
                     </div>
                   </div>
@@ -347,15 +346,9 @@ export default function LeadFunnel() {
                   </div>
                 </div>
 
-                <a 
-                  href={whatsappUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="mt-6 w-full max-w-[320px] py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,204,0.2)]"
-                >
-                  <MessageCircle size={20} />
-                  Liberar minha análise no WhatsApp
-                </a>
+                <div className="mt-6 py-3 px-5 rounded-xl bg-[#00ffcc]/5 border border-[#00ffcc]/20">
+                  <p className="text-sm text-[#00ffcc] font-medium">📱 Fique atento(a) ao seu WhatsApp nas próximas 24h.</p>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -369,16 +362,16 @@ export default function LeadFunnel() {
                 <ArrowLeft size={20} />
               </button>
             )}
-            <button 
+            <button
               disabled={
-                isSubmitting || 
+                isSubmitting ||
                 (step === 1 && !formData.nicho) ||
-                (step === 2 && !formData.faturamento) || 
-                (step === 3 && (!formData.seguidores || !formData.statusConteudo)) || 
-                (step === 4 && !formData.gargalo) || 
+                (step === 2 && !formData.faturamento) ||
+                (step === 3 && (!formData.seguidores || !formData.statusConteudo)) ||
+                (step === 4 && !formData.gargalo) ||
                 (step === 5 && (!formData.nome.trim() || !formData.empresa.trim() || formData.whatsapp.length < 14))
-              } 
-              onClick={step === totalSteps ? handleFinalizar : nextStep} 
+              }
+              onClick={step === totalSteps ? handleFinalizar : nextStep}
               className="flex-1 py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,255,204,0.2)]"
             >
               {isSubmitting ? (
