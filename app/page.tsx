@@ -211,10 +211,11 @@ export default function Home() {
         .sticky-btn:active { box-shadow: 0 0 40px rgba(0, 255, 204, 0.7); }
 
         @media (max-width: 768px) {
-            .container { padding: 0 24px; }
+            .container { padding: 0 32px; }
             .display-text { font-size: 2.2rem; }
             .hero { padding-top: 130px; padding-bottom: 40px; }
-            .glass-panel { padding: 30px 20px; margin: 40px auto; }
+            .glass-panel { padding: 30px 24px; margin: 40px auto; }
+            .proof-strip { gap: 20px; padding: 24px 16px; }
             .grid-2, .nave-grid { grid-template-columns: 1fr; }
             .delay-1, .delay-2, .delay-3 { animation-delay: 0s; }
             .metric-highlight { font-size: 3rem; }
