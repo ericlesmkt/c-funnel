@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, ArrowLeft, TrendingUp, Target, AlertCircle, 
   Building2, User, Instagram, Phone, Loader2, CheckCircle2,
-  Briefcase, Users, Video
+  Briefcase, Users, Video, MessageCircle
 } from "lucide-react";
 
 export default function LeadFunnel() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
   
   const [formData, setFormData] = useState({
     nicho: "",
@@ -72,18 +73,18 @@ export default function LeadFunnel() {
       if (typeof window !== 'undefined' && (window as any).fbq) {
         (window as any).fbq('track', 'Lead', {
           content_name: 'Aplicacao_Imersao_HighEnd',
-          value: 1997.00,
+          value: 599.20,
           currency: 'BRL'
         });
       }
       
-      // MONTA O DOSSIÊ FINAL PARA O ZAP
-      const textoZap = `Olá, Éricles! Preenchi a aplicação para a Imersão Conteúdo High-End.\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo o agendamento da minha análise.`;
+      const textoZap = `Olá, Éricles! Preenchi a aplicação para o Programa de Aceleração (Método N.A.V.E.).\n\n*📋 Dossiê da Empresa:*\n*Nome:* ${formData.nome}\n*Empresa:* ${formData.empresa}\n*Nicho:* ${formData.nicho}\n*Instagram:* ${formData.instagram} (${formData.seguidores} seguidores)\n\n*💰 Financeiro:*\n*Faturamento:* ${formData.faturamento}\n\n*⚠️ Situação Atual:*\n*Produção de Conteúdo:* ${formData.statusConteudo}\n*Maior Desafio:* ${formData.gargalo}\n\nAguardo a análise para garantir minha vaga na Turma Beta.`;
       
       const seuNumero = "558499145820"; 
       const zapLink = `https://wa.me/${seuNumero}?text=${encodeURIComponent(textoZap)}`;
       
-      window.location.href = zapLink;
+      setWhatsappUrl(zapLink);
+      setStep(6);
 
     } catch (error) {
       console.error("❌ Erro ao salvar lead:", error);
@@ -94,27 +95,37 @@ export default function LeadFunnel() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden bg-[#15141b]">
-      {/* Efeito de luz ao fundo com a cor Dourada do Aura */}
-      <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-[#ffca85]/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <main className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden bg-[#050a10]">
+      {/* Efeito de luz ao fundo com a cor Neon do Método N.A.V.E. */}
+      <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-[#00ffcc]/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="w-full max-w-md z-10 flex flex-col min-h-[85vh] justify-between">
+      {/* HEADER DE NAVEGAÇÃO */}
+      <a href="/" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#050a10]/85 backdrop-blur-xl border-b border-[#1e293b]">
+        <span className="text-[#e2e8f0] text-sm font-bold tracking-tight" style={{ fontFamily: 'var(--font-space)' }}>PROGRAMA DE ACELERAÇÃO</span>
+        <span className="text-[#94a3b8] text-xs flex items-center gap-1.5 hover:text-[#00ffcc] transition-colors">
+          <ArrowLeft size={14} /> Voltar
+        </span>
+      </a>
+
+      <div className="w-full max-w-md z-10 flex flex-col min-h-[85vh] justify-between pt-8">
         
         {/* BARRA DE PROGRESSO */}
-        <div className="space-y-6 mt-8">
-          <div className="flex items-center justify-between">
-            <span className="text-[#a1a1aa] font-bold text-xs uppercase tracking-widest">Triagem Clínica</span>
-            <span className="text-[#ffca85] font-medium text-xs bg-[#ffca85]/10 border border-[#ffca85]/20 px-3 py-1 rounded-full">Etapa {step} de {totalSteps}</span>
+        {step < 6 && (
+          <div className="space-y-6 mt-8">
+            <div className="flex items-center justify-between">
+              <span className="text-[#94a3b8] font-bold text-xs uppercase tracking-widest" style={{ fontFamily: 'var(--font-space)' }}>Triagem Clínica</span>
+              <span className="text-[#00ffcc] font-medium text-xs bg-[#00ffcc]/10 border border-[#00ffcc]/20 px-3 py-1 rounded-full">Etapa {step} de {totalSteps}</span>
+            </div>
+            <div className="w-full h-1.5 bg-[#1e293b] rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-[#00ffcc]"
+                initial={{ width: "20%" }}
+                animate={{ width: `${(step / totalSteps) * 100}%` }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+            </div>
           </div>
-          <div className="w-full h-1.5 bg-[#1e1d27] rounded-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-[#ffca85]"
-              initial={{ width: "20%" }}
-              animate={{ width: `${(step / totalSteps) * 100}%` }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-          </div>
-        </div>
+        )}
 
         <div className="flex-1 relative mt-10">
           <AnimatePresence mode="wait">
@@ -123,10 +134,10 @@ export default function LeadFunnel() {
             {step === 1 && (
               <motion.div key="step1" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 bg-[#1e1d27] rounded-lg"><Briefcase className="text-[#ffca85]" size={20} /></div>
-                  <h2 className="text-xl font-bold text-[#edecee]">Qual é o seu mercado?</h2>
+                  <div className="p-2.5 bg-[#1e293b] rounded-lg"><Briefcase className="text-[#00ffcc]" size={20} /></div>
+                  <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual é o seu mercado?</h2>
                 </div>
-                <p className="text-[#a1a1aa] text-sm mb-6">Precisamos entender o perfil do seu negócio para validar a aplicação.</p>
+                <p className="text-[#94a3b8] text-sm mb-6">Precisamos entender o perfil do seu negócio para validar a aplicação.</p>
                 
                 <div className="space-y-3">
                   {[
@@ -139,7 +150,7 @@ export default function LeadFunnel() {
                     <button 
                       key={nicho} 
                       onClick={() => { setFormData({ ...formData, nicho: nicho }); setTimeout(nextStep, 300); }} 
-                      className={`w-full p-4 rounded-xl text-left transition-all border text-sm font-medium ${formData.nicho === nicho ? "bg-[#ffca85]/10 border-[#ffca85]/50 text-[#ffca85]" : "bg-[#1e1d27] border-[#2d2b3b] hover:border-[#ffca85]/30 text-[#c0bfc4]"}`}
+                      className={`w-full p-4 rounded-xl text-left transition-all border text-sm font-medium ${formData.nicho === nicho ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       {nicho}
                       {formData.nicho === nicho && <CheckCircle2 size={18} className="inline-block float-right" />}
@@ -153,10 +164,10 @@ export default function LeadFunnel() {
             {step === 2 && (
               <motion.div key="step2" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
                  <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 bg-[#1e1d27] rounded-lg"><TrendingUp className="text-[#ffca85]" size={20} /></div>
-                  <h2 className="text-xl font-bold text-[#edecee]">Qual o momento atual do negócio?</h2>
+                  <div className="p-2.5 bg-[#1e293b] rounded-lg"><TrendingUp className="text-[#00ffcc]" size={20} /></div>
+                  <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual o momento atual do negócio?</h2>
                 </div>
-                <p className="text-[#a1a1aa] text-sm mb-6">Selecione a faixa de faturamento mensal para dimensionarmos a estratégia.</p>
+                <p className="text-[#94a3b8] text-sm mb-6">Selecione a faixa de faturamento mensal para dimensionarmos a estratégia.</p>
                 <div className="space-y-3">
                   {[
                     { id: "ate-10k", label: "Até R$ 10.000 / mês" },
@@ -166,7 +177,7 @@ export default function LeadFunnel() {
                     <button 
                       key={op.id} 
                       onClick={() => { setFormData({ ...formData, faturamento: op.label }); setTimeout(nextStep, 300); }} 
-                      className={`w-full p-5 rounded-xl flex items-center justify-between transition-all border ${formData.faturamento === op.label ? "bg-[#ffca85]/10 border-[#ffca85]/50 text-[#ffca85]" : "bg-[#1e1d27] border-[#2d2b3b] hover:border-[#ffca85]/30 text-[#c0bfc4]"}`}
+                      className={`w-full p-5 rounded-xl flex items-center justify-between transition-all border ${formData.faturamento === op.label ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       <span className="font-medium">{op.label}</span>
                       {formData.faturamento === op.label && <CheckCircle2 size={20} />}
@@ -180,20 +191,20 @@ export default function LeadFunnel() {
             {step === 3 && (
               <motion.div key="step3" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 bg-[#1e1d27] rounded-lg"><Video className="text-[#ffca85]" size={20} /></div>
-                  <h2 className="text-xl font-bold text-[#edecee]">Raio-X Digital</h2>
+                  <div className="p-2.5 bg-[#1e293b] rounded-lg"><Video className="text-[#00ffcc]" size={20} /></div>
+                  <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Raio-X Digital</h2>
                 </div>
-                <p className="text-[#a1a1aa] text-sm mb-6">Como está a sua estrutura no Instagram hoje?</p>
+                <p className="text-[#94a3b8] text-sm mb-6">Como está a sua estrutura no Instagram hoje?</p>
 
                 <div className="space-y-5">
                   <div className="space-y-2">
-                    <label className="text-[#a1a1aa] text-xs font-bold uppercase ml-1">Volume de Seguidores</label>
+                    <label className="text-[#94a3b8] text-xs font-bold uppercase ml-1">Volume de Seguidores</label>
                     <div className="relative">
-                      <Users className="absolute left-4 top-4 text-[#a1a1aa]" size={18} />
+                      <Users className="absolute left-4 top-4 text-[#94a3b8]" size={18} />
                       <select 
                         value={formData.seguidores}
                         onChange={(e) => setFormData({...formData, seguidores: e.target.value})}
-                        className="w-full p-4 pl-12 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm appearance-none"
+                        className="w-full p-4 pl-12 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm appearance-none"
                       >
                         <option value="" disabled>Selecione uma opção...</option>
                         <option value="Menos de 1.000">Menos de 1.000 seguidores</option>
@@ -204,7 +215,7 @@ export default function LeadFunnel() {
                   </div>
 
                   <div className="space-y-3 mt-4">
-                     <label className="text-[#a1a1aa] text-xs font-bold uppercase ml-1">Como você produz conteúdo hoje?</label>
+                     <label className="text-[#94a3b8] text-xs font-bold uppercase ml-1">Como você produz conteúdo hoje?</label>
                     {[
                       "Não gravo (falta tempo ou tenho vergonha)",
                       "Delego para agência (mas os posts não vendem)",
@@ -213,7 +224,7 @@ export default function LeadFunnel() {
                       <button 
                         key={status} 
                         onClick={() => { setFormData({ ...formData, statusConteudo: status }); }} 
-                        className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.statusConteudo === status ? "bg-[#ffca85]/10 border-[#ffca85]/50 text-[#ffca85]" : "bg-[#1e1d27] border-[#2d2b3b] hover:border-[#ffca85]/30 text-[#c0bfc4]"}`}
+                        className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.statusConteudo === status ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                       >
                         {status}
                       </button>
@@ -227,10 +238,10 @@ export default function LeadFunnel() {
             {step === 4 && (
               <motion.div key="step4" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2.5 bg-[#1e1d27] rounded-lg"><AlertCircle className="text-[#ffca85]" size={20} /></div>
-                  <h2 className="text-xl font-bold text-[#edecee]">Qual o seu maior obstáculo?</h2>
+                  <div className="p-2.5 bg-[#1e293b] rounded-lg"><AlertCircle className="text-[#00ffcc]" size={20} /></div>
+                  <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Qual o seu maior obstáculo?</h2>
                 </div>
-                <p className="text-[#a1a1aa] text-sm mb-6">Onde o processo trava na hora de atrair clientes?</p>
+                <p className="text-[#94a3b8] text-sm mb-6">Onde o processo trava na hora de atrair clientes?</p>
                 
                 <div className="space-y-3">
                   {[
@@ -242,7 +253,7 @@ export default function LeadFunnel() {
                     <button 
                       key={gargalo} 
                       onClick={() => { setFormData({ ...formData, gargalo: gargalo }); setTimeout(nextStep, 300); }} 
-                      className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.gargalo === gargalo ? "bg-[#ffca85]/10 border-[#ffca85]/50 text-[#ffca85]" : "bg-[#1e1d27] border-[#2d2b3b] hover:border-[#ffca85]/30 text-[#c0bfc4]"}`}
+                      className={`w-full p-4 rounded-xl text-left transition-all border text-sm ${formData.gargalo === gargalo ? "bg-[#00ffcc]/10 border-[#00ffcc]/50 text-[#00ffcc]" : "bg-[#1e293b]/50 border-[#1e293b] hover:border-[#00ffcc]/30 text-[#94a3b8]"}`}
                     >
                       {gargalo}
                     </button>
@@ -255,47 +266,47 @@ export default function LeadFunnel() {
             {step === 5 && (
               <motion.div key="step5" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -50, opacity: 0 }} className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 bg-[#1e1d27] rounded-lg"><Building2 className="text-[#ffca85]" size={20} /></div>
-                  <h2 className="text-xl font-bold text-[#edecee]">Dados da Empresa</h2>
+                  <div className="p-2.5 bg-[#1e293b] rounded-lg"><Building2 className="text-[#00ffcc]" size={20} /></div>
+                  <h2 className="text-xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Dados da Empresa</h2>
                 </div>
-                <p className="text-[#a1a1aa] text-sm mb-4">Última etapa. Nossa equipe fará a pré-análise antes do nosso contato.</p>
+                <p className="text-[#94a3b8] text-sm mb-4">Última etapa. Nossa equipe fará a pré-análise antes do nosso contato.</p>
 
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
                      <div className="space-y-1">
-                      <label className="text-[#a1a1aa] text-[10px] font-bold uppercase ml-1">Seu Nome</label>
+                      <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Seu Nome</label>
                       <div className="relative">
-                        <User className="absolute left-3 top-3.5 text-[#a1a1aa]" size={16} />
-                        <input type="text" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full p-3 pl-10 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" placeholder="Nome" />
+                        <User className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
+                        <input type="text" value={formData.nome} onChange={(e) => setFormData({...formData, nome: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Nome" />
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[#a1a1aa] text-[10px] font-bold uppercase ml-1">Empresa</label>
+                      <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Empresa</label>
                       <div className="relative">
-                        <Target className="absolute left-3 top-3.5 text-[#a1a1aa]" size={16} />
-                        <input type="text" value={formData.empresa} onChange={(e) => setFormData({...formData, empresa: e.target.value})} className="w-full p-3 pl-10 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" placeholder="Marca" />
+                        <Target className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
+                        <input type="text" value={formData.empresa} onChange={(e) => setFormData({...formData, empresa: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="Marca" />
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[#a1a1aa] text-[10px] font-bold uppercase ml-1">Instagram do Negócio</label>
+                    <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">Instagram do Negócio</label>
                     <div className="relative">
-                      <Instagram className="absolute left-3 top-3.5 text-[#a1a1aa]" size={16} />
-                      <input type="text" value={formData.instagram} onChange={(e) => setFormData({...formData, instagram: e.target.value})} className="w-full p-3 pl-10 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" placeholder="@suaempresa" />
+                      <Instagram className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
+                      <input type="text" value={formData.instagram} onChange={(e) => setFormData({...formData, instagram: e.target.value})} className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" placeholder="@suaempresa" />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[#a1a1aa] text-[10px] font-bold uppercase ml-1">WhatsApp de Contato</label>
+                    <label className="text-[#94a3b8] text-[10px] font-bold uppercase ml-1">WhatsApp de Contato</label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-3.5 text-[#a1a1aa]" size={16} />
+                      <Phone className="absolute left-3 top-3.5 text-[#94a3b8]" size={16} />
                       <input 
                         type="tel" 
                         value={formData.whatsapp} 
                         onChange={handlePhoneChange} 
                         maxLength={15}
-                        className="w-full p-3 pl-10 bg-[#1e1d27] border border-[#2d2b3b] rounded-xl text-[#edecee] outline-none focus:border-[#ffca85] transition-all text-sm" 
+                        className="w-full p-3 pl-10 bg-[#1e293b]/50 border border-[#1e293b] rounded-xl text-[#e2e8f0] outline-none focus:border-[#00ffcc] transition-all text-sm" 
                         placeholder="(00) 90000-0000" 
                       />
                     </div>
@@ -303,35 +314,81 @@ export default function LeadFunnel() {
                 </div>
               </motion.div>
             )}
+
+            {/* ETAPA 6: TELA DE SUCESSO */}
+            {step === 6 && (
+              <motion.div key="step6" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="space-y-6 text-center flex flex-col items-center justify-center min-h-[50vh]">
+                <div className="w-24 h-24 bg-[#00ffcc]/10 rounded-full flex items-center justify-center mb-2 border border-[#00ffcc]/20">
+                  <CheckCircle2 className="text-[#00ffcc]" size={48} />
+                </div>
+                <h2 className="text-3xl font-bold text-[#e2e8f0]" style={{ fontFamily: 'var(--font-space)' }}>Aplicação Enviada!</h2>
+                <p className="text-[#94a3b8] text-base max-w-[340px] mx-auto leading-relaxed">
+                  Seus dados foram recebidos com sucesso. Agora, veja o que vai acontecer:
+                </p>
+
+                <div className="w-full max-w-[320px] text-left space-y-4 mt-4">
+                  <div className="flex gap-3 items-start">
+                    <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-[#00ffcc] text-xs font-bold">1</span>
+                    </div>
+                    <p className="text-[#e2e8f0] text-sm"><strong>Pré-análise</strong> — Nossa equipe vai analisar o dossiê do seu negócio.</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-[#00ffcc] text-xs font-bold">2</span>
+                    </div>
+                    <p className="text-[#e2e8f0] text-sm"><strong>Entrevista</strong> — Entraremos em contato pelo WhatsApp para a conversa inicial.</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <div className="w-7 h-7 rounded-full bg-[#00ffcc]/10 border border-[#00ffcc]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-[#00ffcc] text-xs font-bold">3</span>
+                    </div>
+                    <p className="text-[#e2e8f0] text-sm"><strong>Aprovação</strong> — Se aprovado(a), liberaremos sua vaga na Turma Beta.</p>
+                  </div>
+                </div>
+
+                <a 
+                  href={whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="mt-6 w-full max-w-[320px] py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,204,0.2)]"
+                >
+                  <MessageCircle size={20} />
+                  Liberar minha análise no WhatsApp
+                </a>
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
 
         {/* NAVEGAÇÃO */}
-        <div className="flex gap-3 mt-8 pb-8">
-          {step > 1 && (
-            <button disabled={isSubmitting} onClick={prevStep} className="p-4 rounded-xl bg-[#1e1d27] border border-[#2d2b3b] text-[#edecee] hover:bg-[#2d2b3b] disabled:opacity-50 transition-all">
-              <ArrowLeft size={20} />
-            </button>
-          )}
-          <button 
-            disabled={
-              isSubmitting || 
-              (step === 1 && !formData.nicho) ||
-              (step === 2 && !formData.faturamento) || 
-              (step === 3 && (!formData.seguidores || !formData.statusConteudo)) || 
-              (step === 4 && !formData.gargalo) || 
-              (step === 5 && (!formData.nome.trim() || !formData.empresa.trim() || formData.whatsapp.length < 14))
-            } 
-            onClick={step === totalSteps ? handleFinalizar : nextStep} 
-            className="flex-1 py-4 rounded-xl bg-[#ffca85] text-[#15141b] font-bold text-base hover:bg-[#e6b677] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,202,133,0.2)]"
-          >
-            {isSubmitting ? (
-              <><Loader2 className="animate-spin" size={20} /> Processando...</>
-            ) : (
-              <>{step === totalSteps ? "Enviar Aplicação" : "Continuar"} <ArrowRight size={20} /></>
+        {step < 6 && (
+          <div className="flex gap-3 mt-8 pb-8">
+            {step > 1 && (
+              <button disabled={isSubmitting} onClick={prevStep} className="p-4 rounded-xl bg-[#1e293b] border border-[#1e293b] text-[#e2e8f0] hover:bg-[#1e293b]/80 disabled:opacity-50 transition-all">
+                <ArrowLeft size={20} />
+              </button>
             )}
-          </button>
-        </div>
+            <button 
+              disabled={
+                isSubmitting || 
+                (step === 1 && !formData.nicho) ||
+                (step === 2 && !formData.faturamento) || 
+                (step === 3 && (!formData.seguidores || !formData.statusConteudo)) || 
+                (step === 4 && !formData.gargalo) || 
+                (step === 5 && (!formData.nome.trim() || !formData.empresa.trim() || formData.whatsapp.length < 14))
+              } 
+              onClick={step === totalSteps ? handleFinalizar : nextStep} 
+              className="flex-1 py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,255,204,0.2)]"
+            >
+              {isSubmitting ? (
+                <><Loader2 className="animate-spin" size={20} /> Processando...</>
+              ) : (
+                <>{step === totalSteps ? "Enviar Aplicação" : "Continuar"} <ArrowRight size={20} /></>
+              )}
+            </button>
+          </div>
+        )}
 
       </div>
     </main>
