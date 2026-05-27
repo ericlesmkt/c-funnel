@@ -211,15 +211,33 @@ export default function Home() {
         .sticky-btn:active { box-shadow: 0 0 40px rgba(0, 255, 204, 0.7); }
 
         @media (max-width: 768px) {
-            .container { padding: 0 32px; }
-            .display-text { font-size: 2.2rem; }
+            .container { padding: 0 24px; }
+            .display-text { font-size: 2rem; }
             .hero { padding-top: 130px; padding-bottom: 40px; }
-            .glass-panel { padding: 30px 24px; margin: 40px auto; }
-            .proof-strip { gap: 20px; padding: 24px 16px; }
+            .glass-panel { padding: 30px 20px; margin: 40px auto; width: 100%; box-sizing: border-box; }
+            .proof-strip { gap: 20px; padding: 24px 16px; flex-direction: column; align-items: center; text-align: center; }
             .grid-2, .nave-grid { grid-template-columns: 1fr; }
             .delay-1, .delay-2, .delay-3 { animation-delay: 0s; }
-            .metric-highlight { font-size: 3rem; }
-            .offer-table th, .offer-table td { padding: 12px 10px; font-size: 0.95rem; }
+            .metric-highlight { font-size: 2.8rem; }
+            
+            /* Prevent Table Overflow */
+            .offer-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+            .offer-table th, .offer-table td { padding: 12px 10px; font-size: 0.9rem; }
+            .offer-table td:first-child { min-width: 200px; }
+            
+            /* Prevent Timeline Overflow */
+            .timeline { padding-left: 20px; margin-top: 40px; }
+            .timeline-item::before { left: -26px; }
+            
+            /* Prevent Countdown Overflow */
+            .countdown-strip { flex-wrap: wrap; gap: 10px; }
+            .countdown-box { min-width: 65px; padding: 10px; }
+            
+            /* Fix any potential wide containers */
+            .exclusion-list { padding: 0 10px; }
+            .guarantee-box { flex-direction: column; text-align: center; padding: 24px 20px; }
+            .guarantee-icon { margin-bottom: 5px; }
+            .mobile-sticky { padding: 12px 20px; left: 15px; right: 15px; }
         }
       `}} />
 
