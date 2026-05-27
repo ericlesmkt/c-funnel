@@ -115,7 +115,7 @@ export default function Home() {
         .btn-header-glow:hover { background: var(--primary); color: #050a10; box-shadow: 0 0 30px rgba(0, 255, 204, 0.6); }
 
         /* HERO */
-        .hero { padding: 180px 0 80px; text-align: center; }
+        .hero { padding-top: 180px; padding-bottom: 80px; text-align: center; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 50px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.3); color: var(--primary); font-size: 0.8rem; font-weight: 700; margin-bottom: 24px; box-shadow: 0 0 20px rgba(0, 255, 204, 0.15); letter-spacing: 1px; text-transform: uppercase;}
         .display-text { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 0 10px 40px rgba(0,0,0,0.8); letter-spacing: -2px; line-height: 1.1; }
         .sub-headline { color: var(--text-body-glass); font-size: 1.15rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; line-height: 1.6;}
@@ -226,7 +226,7 @@ export default function Home() {
             .offer-table td:first-child { min-width: 200px; }
             
             /* Prevent Timeline Overflow */
-            .timeline { padding-left: 20px; margin-top: 40px; }
+            .timeline { padding-left: 30px; margin-top: 40px; }
             .timeline-item::before { left: -26px; }
             
             /* Prevent Countdown Overflow */
@@ -350,7 +350,7 @@ export default function Home() {
             </section>
 
             {/* SLIDE 4, 5, 6, 7, 8: O MÉTODO N.A.V.E. */}
-            <section className="container animate-enter delay-2" style={{ padding: "80px 0" }}>
+            <section className="container animate-enter delay-2" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
                 <div className="text-center" style={{ marginBottom: "60px" }}>
                     <span style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>A Metodologia</span>
                     <h2 style={{ fontSize: "2.8rem", marginTop: "10px" }}>O Método N.A.V.E.</h2>
@@ -431,7 +431,7 @@ export default function Home() {
             </section>
 
             {/* SLIDE 9: AUTORIDADE (CARROSSEL DUOTONE E BIO) */}
-            <section className="container animate-enter" style={{ padding: "60px 0" }}>
+            <section className="container animate-enter" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
                 <div style={{ textAlign: "center", marginBottom: "50px" }}>
                     <span style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>Quem está nos bastidores</span>
                     <h2 style={{ fontSize: '2.4rem', margin: "15px 0 30px" }}>O Arquiteto da Máquina</h2>
@@ -496,7 +496,7 @@ export default function Home() {
             </section>
 
             {/* SLIDE 11: CRONOGRAMA */}
-            <section className="container animate-enter" style={{ padding: "60px 0 80px" }}>
+            <section className="container animate-enter" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
                 <div className="text-center">
                     <h2 style={{ fontSize: "2.4rem" }}>4 Semanas Para a Decolagem</h2>
                     <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginTop: "10px" }}>O cronograma de implementação do Método N.A.V.E.</p>
@@ -523,7 +523,7 @@ export default function Home() {
             </section>
 
             {/* SEÇÃO: PARA QUEM NÃO É */}
-            <section className="container animate-enter" style={{ padding: "0 0 60px" }}>
+            <section className="container animate-enter" style={{ paddingTop: "0px", paddingBottom: "60px" }}>
                 <div className="text-center">
                     <h2 style={{ fontSize: "2.2rem" }}>Essa Mentoria <span style={{ color: "var(--alert)" }}>Não</span> É Para Você Se...</h2>
                 </div>
@@ -548,7 +548,7 @@ export default function Home() {
             </section>
 
             {/* PROPOSTA COMERCIAL */}
-            <section id="proposta" className="container animate-enter" style={{ padding: "40px 0 120px" }}>
+            <section id="proposta" className="container animate-enter" style={{ paddingTop: "40px", paddingBottom: "120px" }}>
                 <div className="glass-panel" style={{ background: "linear-gradient(160deg, rgba(5, 10, 16, 0.9) 0%, rgba(30, 41, 59, 0.6) 100%)", border: "1px solid var(--primary)", boxShadow: "0 0 40px rgba(0, 255, 204, 0.15)" }}>
                     <div className="text-center">
                         <div className="urgency-bar" style={{ margin: "0 auto 20px" }}>
@@ -654,7 +654,7 @@ export default function Home() {
             </section>
 
             {/* FAQ */}
-            <section className="container animate-enter" style={{ padding: "0 0 100px", maxWidth: "800px" }}>
+            <section className="container animate-enter" style={{ paddingTop: "0px", paddingBottom: "100px", maxWidth: "800px" }}>
                 <div className="text-center" style={{ marginBottom: "40px" }}>
                     <h2 style={{ fontSize: "2.2rem" }}>Perguntas Frequentes</h2>
                 </div>
