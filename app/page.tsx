@@ -205,7 +205,7 @@ export default function Home() {
         .exclusion-list li svg { flex-shrink: 0; margin-top: 3px; }
 
         /* MOBILE STICKY */
-        .mobile-sticky { display: none; }
+        .mobile-sticky { position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(5, 10, 16, 0.9); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 12px 24px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 1s 1s backwards; max-width: 600px; margin: 0 auto; }
         .sticky-btn { background: var(--primary); color: #050a10; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.9rem; box-shadow: 0 0 15px rgba(0, 255, 204, 0.3); transition: 0.3s; position: relative; z-index: 10; text-transform: uppercase; }
         .sticky-btn:active { box-shadow: 0 0 40px rgba(0, 255, 204, 0.7); }
 
@@ -238,7 +238,7 @@ export default function Home() {
             .exclusion-list { padding: 0 10px; }
             .guarantee-box { flex-direction: column; text-align: center; padding: 24px 20px; }
             .guarantee-icon { margin-bottom: 5px; }
-            .mobile-sticky { position: fixed; bottom: 20px; left: 15px; right: 15px; background: rgba(5, 10, 16, 0.95); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 12px 20px; border-radius: 16px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 1s 1s backwards; }
+            .mobile-sticky { padding: 12px 20px; left: 15px; right: 15px; max-width: none; }
         }
       `}} />
 
