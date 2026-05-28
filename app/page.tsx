@@ -260,10 +260,10 @@ export default function Home() {
             <section className="hero container animate-enter">
                 <div className="hero-badge">TURMA BETA — VAGAS LIMITADAS</div>
                 <h1 className="display-text">
-                    Pare de Ser o Segredo Mais Bem Guardado da Sua <span className="text-highlight">Região.</span>
+                    O sistema definitivo para quem tem um <span className="text-highlight">serviço de excelência</span> e cansou de <span className="text-highlight">depender de agências.</span>
                 </h1>
                 <p className="sub-headline">
-                    O Método N.A.V.E. instala no seu negócio a mesma engenharia digital que já escalou perfis do zero aos 10 mil seguidores e gerenciou mais de R$ 500 mil em campanhas. Em 4 semanas, você sai com sua máquina de atração de clientes rodando.
+                    O Método N.A.V.E. transfere para você a mesma engenharia que utilizamos para escalar campanhas de meio milhão de reais. Sem que você precise perder mais tempo e dinheiro testando. Em 4 semanas, você constrói o seu maior ativo: uma <strong className="text-highlight">máquina própria de atração de clientes</strong> altamente qualificados.
                 </p>
                 <div style={{ maxWidth: "420px", margin: "0 auto" }}>
                     <Link href="/diagnostico" className="btn-primary btn-pulse">APLICAR PARA MINHA VAGA</Link>
