@@ -14,8 +14,31 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Método N.A.V.E.",
-  description: "Transforme seu conteúdo em vendas diárias. Aplique para o nosso diagnóstico e descubra o plano definitivo para o seu negócio.",
+  metadataBase: new URL("https://nave.chamainside.com"),
+  title: "Método N.A.V.E. — Aplicação Oficial",
+  description: "O sistema definitivo para quem tem um serviço de excelência e cansou de depender de agências.",
+  openGraph: {
+    title: "Método N.A.V.E. — Aplicação Oficial",
+    description: "O sistema definitivo para quem tem um serviço de excelência e cansou de depender de agências.",
+    url: "https://nave.chamainside.com",
+    siteName: "Método N.A.V.E.",
+    images: [
+      {
+        url: "/og-nave.png",
+        width: 1200,
+        height: 630,
+        alt: "Método N.A.V.E. — Aplicação Oficial",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Método N.A.V.E. — Aplicação Oficial",
+    description: "O sistema definitivo para quem tem um serviço de excelência e cansou de depender de agências.",
+    images: ["/og-nave.png"],
+  },
 };
 
 export default function RootLayout({
