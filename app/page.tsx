@@ -249,8 +249,8 @@ export default function Home() {
 
             <header className="header">
                 <div className="container nav-content">
-                    <Link href="/" className="logo">
-                        <img src="/nave-logo.png" alt="Método N.A.V.E." style={{ height: "48px", width: "auto" }} />
+                    <Link href="/" className="logo" style={{ flexShrink: 0 }}>
+                        <img src="/nave-logo.png" alt="Método N.A.V.E." style={{ height: "48px", width: "auto", objectFit: "contain", flexShrink: 0 }} />
                     </Link>
                     <Link href="/diagnostico" className="btn-header-glow">APLICAÇÃO</Link>
                 </div>
