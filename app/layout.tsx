@@ -24,10 +24,11 @@ export const metadata: Metadata = {
     siteName: "Método N.A.V.E.",
     images: [
       {
-        url: "/og-nave.jpg",
+        url: "https://nave.chamainside.com/og-nave.jpg",
         width: 1200,
         height: 630,
         alt: "Método N.A.V.E. — Aplicação Oficial",
+        type: "image/jpeg",
       },
     ],
     locale: "pt_BR",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Método N.A.V.E. — Aplicação Oficial",
     description: "O sistema definitivo para quem tem um serviço de excelência e cansou de depender de agências.",
-    images: ["/og-nave.jpg"],
+    images: ["https://nave.chamainside.com/og-nave.jpg"],
   },
 };
 
