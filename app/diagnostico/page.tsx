@@ -104,7 +104,7 @@ export default function LeadFunnel() {
 
       {/* HEADER DE NAVEGAÇÃO */}
       <Link href="/" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#050a10]/85 backdrop-blur-xl border-b border-[#1e293b]">
-        <img src="/nave-logo.png" alt="Método N.A.V.E." className="h-12 w-auto flex-shrink-0 object-contain" />
+        <img src="/nave-logo.png" alt="Método N.A.V.E." className="h-7 md:h-12 w-auto flex-shrink-0 object-contain" />
         <span className="text-[#94a3b8] text-xs flex items-center gap-1.5 hover:text-[#00ffcc] transition-colors">
           <ArrowLeft size={14} /> Voltar
         </span>

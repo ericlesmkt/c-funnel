@@ -205,14 +205,16 @@ export default function Home() {
         .exclusion-list li svg { flex-shrink: 0; margin-top: 3px; }
 
         /* MOBILE STICKY */
-        .mobile-sticky { position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(5, 10, 16, 0.9); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 12px 24px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 1s 1s backwards; }
+        .mobile-sticky { display: none; }
         .sticky-btn { background: var(--primary); color: #050a10; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.9rem; box-shadow: 0 0 15px rgba(0, 255, 204, 0.3); transition: 0.3s; position: relative; z-index: 10; text-transform: uppercase; }
         .sticky-btn:active { box-shadow: 0 0 40px rgba(0, 255, 204, 0.7); }
 
         @media (max-width: 768px) {
-            .container { padding: 0 24px; }
-            .display-text { font-size: 2rem; }
-            .hero { padding-top: 130px; padding-bottom: 40px; }
+            .container { padding: 0 20px; }
+            .display-text { font-size: 1.8rem; line-height: 1.1; }
+            .hero { padding-top: 110px; padding-bottom: 30px; }
+            .sub-headline { font-size: 0.95rem; margin-bottom: 24px; }
+            .btn-header-glow { padding: 8px 16px; font-size: 0.8rem; }
             .glass-panel { padding: 30px 20px; margin: 40px auto; width: 100%; box-sizing: border-box; }
             .proof-strip { gap: 20px; padding: 24px 16px; flex-direction: column; align-items: center; text-align: center; }
             .grid-2, .nave-grid { grid-template-columns: 1fr; }
@@ -236,7 +238,7 @@ export default function Home() {
             .exclusion-list { padding: 0 10px; }
             .guarantee-box { flex-direction: column; text-align: center; padding: 24px 20px; }
             .guarantee-icon { margin-bottom: 5px; }
-            .mobile-sticky { padding: 12px 20px; left: 15px; right: 15px; }
+            .mobile-sticky { position: fixed; bottom: 20px; left: 15px; right: 15px; background: rgba(5, 10, 16, 0.95); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 12px 20px; border-radius: 16px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 1s 1s backwards; }
         }
       `}} />
 
@@ -250,7 +252,7 @@ export default function Home() {
             <header className="header">
                 <div className="container nav-content">
                     <Link href="/" className="logo" style={{ flexShrink: 0 }}>
-                        <img src="/nave-logo.png" alt="Método N.A.V.E." style={{ height: "48px", width: "auto", objectFit: "contain", flexShrink: 0 }} />
+                        <img src="/nave-logo.png" alt="Método N.A.V.E." className="h-7 md:h-12 w-auto object-contain flex-shrink-0" />
                     </Link>
                     <Link href="/diagnostico" className="btn-header-glow">APLICAÇÃO</Link>
                 </div>
