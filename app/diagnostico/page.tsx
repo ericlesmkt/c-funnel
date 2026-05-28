@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, ArrowLeft, TrendingUp, Target, AlertCircle,
@@ -70,7 +71,9 @@ export default function LeadFunnel() {
       console.log("✅ Lead qualificado e salvo com sucesso:", data);
 
       // DISPARO DO EVENTO PRO META ADS
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (typeof window !== 'undefined' && (window as any).fbq) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).fbq('track', 'Lead', {
           content_name: 'Aplicacao_Imersao_HighEnd',
           value: 599.20,
@@ -100,12 +103,12 @@ export default function LeadFunnel() {
       <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-[#00ffcc]/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       {/* HEADER DE NAVEGAÇÃO */}
-      <a href="/" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#050a10]/85 backdrop-blur-xl border-b border-[#1e293b]">
+      <Link href="/" className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#050a10]/85 backdrop-blur-xl border-b border-[#1e293b]">
         <img src="/nave-logo.png" alt="Método N.A.V.E." className="h-12 w-auto" />
         <span className="text-[#94a3b8] text-xs flex items-center gap-1.5 hover:text-[#00ffcc] transition-colors">
           <ArrowLeft size={14} /> Voltar
         </span>
-      </a>
+      </Link>
 
       <div className="w-full max-w-md z-10 flex flex-col min-h-[85vh] justify-between pt-8">
 

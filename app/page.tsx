@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import Link from "next/link";
-import { CheckCircle2, ChevronDown, Play, Layout, TrendingUp, MonitorSmartphone, XCircle, ShieldAlert, Shield, Clock } from "lucide-react";
+import { CheckCircle2, Play, Layout, TrendingUp, MonitorSmartphone, XCircle, ShieldAlert, Shield, Clock } from "lucide-react";
 
 export default function Home() {
     // Countdown: calcula o próximo domingo (fim da semana)
@@ -319,7 +318,7 @@ export default function Home() {
                                 </li>
                                 <li style={{ color: "var(--text-muted)", fontSize: "0.95rem", display: "flex", gap: "10px", alignItems: "flex-start" }}>
                                     <XCircle size={20} color="var(--alert)" style={{ flexShrink: 0, marginTop: "2px" }} />
-                                    <span>No fim do dia, você virou o "faz-tudo" do digital, enquanto a agenda principal continua travada.</span>
+                                    <span>No fim do dia, você virou o &quot;faz-tudo&quot; do digital, enquanto a agenda principal continua travada.</span>
                                 </li>
                             </ul>
                         </div>
@@ -647,7 +646,7 @@ export default function Home() {
                         </div>
 
                         <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", fontStyle: "italic", borderTop: "1px solid var(--glass-border)", paddingTop: "20px", maxWidth: "500px", margin: "30px auto 0" }}>
-                            "A diferença entre ser a escolha principal ou apenas mais uma opção está na forma como o seu valor é percebido na internet."
+                            &quot;A diferença entre ser a escolha principal ou apenas mais uma opção está na forma como o seu valor é percebido na internet.&quot;
                         </p>
                     </div>
                 </div>

@@ -83,10 +83,10 @@ export async function POST(request: Request) {
       lead: data[0] 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('❌ Erro na Rota da API:', error);
     return NextResponse.json(
-      { error: 'Erro interno no servidor', detalhes: error.message },
+      { error: 'Erro interno no servidor', detalhes: error instanceof Error ? error.message : 'Erro desconhecido' },
       { status: 500 }
     );
   }
