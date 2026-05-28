@@ -16,9 +16,6 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
   title: "Método N.A.V.E.",
   description: "Transforme seu conteúdo em vendas diárias. Aplique para o nosso diagnóstico e descubra o plano definitivo para o seu negócio.",
-  icons: {
-    icon: "/candeeiro-azul-brilho.png",
-  },
 };
 
 export default function RootLayout({
