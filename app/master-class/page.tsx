@@ -192,37 +192,37 @@ export default function MasterClass() {
       <section className="mc-container">
         <div className="mc-grid">
           <div className="mc-benefits">
-            <h2>O que você vai aprender nessa aula:</h2>
+            <h2>O que você vai descobrir nessa aula:</h2>
 
             <div className="mc-benefit-card">
               <div className="mc-benefit-icon"><Target size={20} /></div>
               <div>
-                <h4>Passo 1 — Posicionamento Magnético</h4>
-                <p>Como se tornar a única opção na mente do cliente, mesmo em mercados saturados.</p>
+                <h4>Passo 1 — O erro invisível</h4>
+                <p>Por que 90% dos profissionais competentes continuam sendo &quot;mais um&quot; no mercado — e o que os outros 10% fazem diferente antes mesmo de postar.</p>
               </div>
             </div>
 
             <div className="mc-benefit-card">
               <div className="mc-benefit-icon"><TrendingUp size={20} /></div>
               <div>
-                <h4>Passo 2 — Conteúdo que Converte</h4>
-                <p>A estrutura exata de conteúdo que transforma seguidores em leads qualificados.</p>
+                <h4>Passo 2 — A armadilha do engajamento</h4>
+                <p>Curtidas não pagam boleto. Vou te mostrar por que o conteúdo que mais viraliza quase nunca é o que mais vende — e como inverter isso.</p>
               </div>
             </div>
 
             <div className="mc-benefit-card">
               <div className="mc-benefit-icon"><Zap size={20} /></div>
               <div>
-                <h4>Passo 3 — Funil Invisível</h4>
-                <p>O sistema automatizado que trabalha 24h por dia para atrair e qualificar clientes.</p>
+                <h4>Passo 3 — O vendedor que nunca dorme</h4>
+                <p>Existe uma engrenagem que trabalha enquanto você atende, dorme ou viaja. A maioria nem sabe que ela existe. Quem monta, para de correr atrás de cliente.</p>
               </div>
             </div>
 
             <div className="mc-benefit-card">
               <div className="mc-benefit-icon"><ArrowRight size={20} /></div>
               <div>
-                <h4>Passo 4 — Escala com I.A.</h4>
-                <p>Como usar inteligência artificial para multiplicar os resultados sem aumentar sua carga de trabalho.</p>
+                <h4>Passo 4 — O multiplicador silencioso</h4>
+                <p>A tecnologia que está permitindo que negócios de 1 pessoa entreguem resultado de equipe de 5. Quem não usar agora, vai pagar caro pela demora.</p>
               </div>
             </div>
           </div>
