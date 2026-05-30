@@ -58,7 +58,8 @@ export default function MasterClass() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         :root {
           --primary: #00ffcc;
           --primary-glow: rgba(0, 255, 204, 0.6);
@@ -182,10 +183,10 @@ export default function MasterClass() {
           <div className="mc-info-item"><Users size={18} /> Vagas Limitadas</div>
         </div>
         <div className="mc-countdown">
-          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.days).padStart(2,"0")}</div><div className="mc-cd-label">Dias</div></div>
-          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.hours).padStart(2,"0")}</div><div className="mc-cd-label">Horas</div></div>
-          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.minutes).padStart(2,"0")}</div><div className="mc-cd-label">Min</div></div>
-          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.seconds).padStart(2,"0")}</div><div className="mc-cd-label">Seg</div></div>
+          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.days).padStart(2, "0")}</div><div className="mc-cd-label">Dias</div></div>
+          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.hours).padStart(2, "0")}</div><div className="mc-cd-label">Horas</div></div>
+          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.minutes).padStart(2, "0")}</div><div className="mc-cd-label">Min</div></div>
+          <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.seconds).padStart(2, "0")}</div><div className="mc-cd-label">Seg</div></div>
         </div>
       </section>
 

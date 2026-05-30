@@ -262,10 +262,10 @@ export default function Home() {
             <section className="hero container animate-enter">
                 <div className="hero-badge">TURMA BETA — VAGAS LIMITADAS</div>
                 <h1 className="display-text">
-                    O sistema definitivo para quem tem um <span className="text-highlight">serviço de excelência</span> e cansou de <span className="text-highlight">depender de agências.</span>
+                    Seu serviço já é <span className="text-highlight">excelente</span>. Está na hora da <span className="text-highlight">internet perceber</span> isso.
                 </h1>
                 <p className="sub-headline">
-                    O Método N.A.V.E. transfere para você a mesma engenharia que utilizamos para escalar campanhas de meio milhão de reais. Sem que você precise perder mais tempo e dinheiro testando. Em 4 semanas, você constrói o seu maior ativo: uma <strong className="text-highlight">máquina própria de atração de clientes</strong> altamente qualificados.
+                    Em 4 semanas, transforme seu conhecimento em <strong className="text-highlight">autoridade</strong>, sua autoridade em <strong className="text-highlight">demanda</strong> e sua demanda em <strong className="text-highlight">clientes</strong>.
                 </p>
                 <div style={{ maxWidth: "420px", margin: "0 auto" }}>
                     <Link href="/diagnostico" className="btn-primary btn-pulse">APLICAR PARA MINHA VAGA</Link>
@@ -282,8 +282,8 @@ export default function Home() {
                         <div className="proof-label">Nos Bastidores das Vendas</div>
                     </div>
                     <div className="proof-item">
-                        <div className="proof-number">4x</div>
-                        <div className="proof-label">Mais Velocidade de Posicionamento</div>
+                        <div className="proof-number">✓</div>
+                        <div className="proof-label">Método Validado em Múltiplos Segmentos</div>
                     </div>
                 </div>
             </section>
@@ -295,11 +295,19 @@ export default function Home() {
 
                 <div className="glass-panel" style={{ padding: "60px 50px", position: "relative", zIndex: 1 }}>
                     <div className="text-center" style={{ marginBottom: "50px", position: "relative", zIndex: 1 }}>
-                        <span style={{ color: 'var(--alert)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>O Inimigo Invisível</span>
+                        <span style={{ color: 'var(--alert)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>Você já percebeu isso?</span>
                         <h2 style={{ fontSize: "2.6rem", marginTop: "10px", textShadow: "0 4px 20px rgba(0,0,0,0.4)" }}>O Paradoxo da Autoridade Oculta</h2>
-                        <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", maxWidth: "700px", margin: "20px auto 0", lineHeight: "1.7" }}>
-                            Você investe alto, domina a sua área e entrega o melhor resultado. Mas, na internet, <strong style={{ color: "#fff" }}>concorrentes com metade do seu conhecimento roubam os seus clientes todos os dias</strong> simplesmente porque sabem embalar e vender o próprio serviço melhor que você.
-                        </p>
+                        <div style={{ color: "var(--text-muted)", fontSize: "1.15rem", maxWidth: "700px", margin: "20px auto 0", lineHeight: "1.9" }}>
+                            <p style={{ marginBottom: "8px" }}>O melhor dentista nem sempre é o mais procurado.</p>
+                            <p style={{ marginBottom: "8px" }}>O melhor advogado nem sempre é o mais lembrado.</p>
+                            <p style={{ marginBottom: "20px" }}>O melhor arquiteto nem sempre é o mais valorizado.</p>
+                            <p style={{ marginBottom: "8px" }}>Enquanto isso, <strong style={{ color: "#fff" }}>profissionais medianos lotam a agenda</strong>.</p>
+                            <p style={{ marginBottom: "8px" }}>Não porque são melhores.</p>
+                            <p style={{ marginBottom: "20px" }}>Mas porque aprenderam a <strong style={{ color: "#fff" }}>controlar a percepção</strong>.</p>
+                            <p style={{ marginBottom: "8px", color: "var(--primary)", fontWeight: 700 }}>O mercado não recompensa competência.</p>
+                            <p style={{ marginBottom: "20px", color: "var(--primary)", fontWeight: 700 }}>O mercado recompensa competência percebida.</p>
+                            <p>E é exatamente essa lacuna que o <strong style={{ color: "#fff" }}>Método N.A.V.E.</strong> resolve.</p>
+                        </div>
                     </div>
 
                     <div className="grid-2" style={{ position: "relative", zIndex: 1, alignItems: "stretch" }}>
@@ -361,55 +369,49 @@ export default function Home() {
                 </div>
 
                 <div className="nave-grid">
-                    {/* N - NARRATIVA */}
+                    {/* N - NOTÁVEL */}
                     <div className="nave-card">
                         <div className="nave-letter">N</div>
                         <div className="nave-icon-wrap">
                             <Layout size={24} />
                         </div>
-                        <h3>Narrativa Estratégica</h3>
-                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.5", marginBottom: "15px" }}>
-                            O que você fala precisa gerar dinheiro, não apenas curtidas. Vamos criar um discurso direto que filtra curiosos e atrai quem realmente tem potencial de compra. Sem termos técnicos, apenas a mensagem certa para o cliente certo.
+                        <h3>N — Notável</h3>
+                        <p style={{ color: "var(--primary)", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "15px", fontWeight: 600 }}>
+                            Torne-se impossível de ignorar.
                         </p>
-                        <ul className="nave-list">
-                            <li><CheckCircle2 size={18} /> <strong>Atenção Imediata:</strong> Ganchos práticos para prender o cliente nos primeiros 3 segundos do vídeo.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Roteiros com IA:</strong> Prompts prontos para criar textos de vendas em minutos, mantendo a sua essência.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Filtro Anti-Curiosos:</strong> Como quebrar objeções e qualificar o lead antes mesmo de você falar o preço.</li>
-                        </ul>
+                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                            Você vai descobrir como transformar seu conhecimento em uma mensagem que chama atenção, gera autoridade e faz o cliente pensar: <strong style={{ color: "#fff" }}>&quot;é exatamente essa pessoa que eu preciso.&quot;</strong>
+                        </p>
                     </div>
 
-                    {/* A - AUDIOVISUAL */}
+                    {/* A - AUTORIDADE */}
                     <div className="nave-card">
                         <div className="nave-letter">A</div>
                         <div className="nave-icon-wrap">
                             <Play size={24} />
                         </div>
-                        <h3>Audiovisual e Performance</h3>
-                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.5", marginBottom: "15px" }}>
-                            Você não precisa de câmeras de cinema para parecer uma autoridade. Vou te mostrar como usar o celular que já está no seu bolso para gravar vídeos com qualidade premium que geram confiança instantânea.
+                        <h3>A — Autoridade</h3>
+                        <p style={{ color: "var(--primary)", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "15px", fontWeight: 600 }}>
+                            Faça sua imagem trabalhar por você.
                         </p>
-                        <ul className="nave-list">
-                            <li><CheckCircle2 size={18} /> <strong>O Setup do Especialista:</strong> Como ter iluminação profissional e áudio limpo usando equipamentos básicos.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Destrave em Frente à Câmera:</strong> Técnicas práticas de oratória para você gravar com naturalidade e sem gaguejar.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Edição Magnética:</strong> Cortes dinâmicos direto no celular para manter o cliente hipnotizado até o final.</li>
-                        </ul>
+                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                            Mesmo usando apenas seu celular, você aprenderá a criar conteúdos que <strong style={{ color: "#fff" }}>aumentam confiança instantânea</strong> e elevam seu valor percebido.
+                        </p>
                     </div>
 
-                    {/* V - VITRINE */}
+                    {/* V - VENDAS */}
                     <div className="nave-card">
                         <div className="nave-letter">V</div>
                         <div className="nave-icon-wrap">
                             <MonitorSmartphone size={24} />
                         </div>
-                        <h3>Vitrine de Conversão</h3>
-                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.5", marginBottom: "15px" }}>
-                            Pare de perder tempo respondendo dúvidas repetitivas no WhatsApp. Vamos construir uma página de vendas que trabalha 24 horas por dia como o seu melhor vendedor, transformando visitantes em agendamentos.
+                        <h3>V — Vendas</h3>
+                        <p style={{ color: "var(--primary)", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "15px", fontWeight: 600 }}>
+                            Construa uma vitrine que vende enquanto você trabalha.
                         </p>
-                        <ul className="nave-list">
-                            <li><CheckCircle2 size={18} /> <strong>A Página de Alta Conversão:</strong> A estrutura exata que faz o cliente desejar o seu serviço.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Design Premium:</strong> Um visual que eleva o nível do seu negócio e justifica cobrar mais caro.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Automação Silenciosa:</strong> Sistemas inteligentes que recebem e organizam os leads no piloto automático, sem você precisar entender de programação.</li>
-                        </ul>
+                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                            Uma estrutura digital capaz de <strong style={{ color: "#fff" }}>transformar visitantes em oportunidades reais</strong> — sem depender de indicação.
+                        </p>
                     </div>
 
                     {/* E - ESCALA */}
@@ -418,15 +420,13 @@ export default function Home() {
                         <div className="nave-icon-wrap">
                             <TrendingUp size={24} />
                         </div>
-                        <h3>Escala</h3>
-                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.5", marginBottom: "15px" }}>
-                            Com a sua vitrine pronta, é hora de trazer a multidão. Vamos ligar a máquina de anúncios para dominar a sua região e lotar a sua agenda com previsibilidade financeira.
+                        <h3>E — Escala</h3>
+                        <p style={{ color: "var(--primary)", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "15px", fontWeight: 600 }}>
+                            Ligue a máquina.
                         </p>
-                        <ul className="nave-list">
-                            <li><CheckCircle2 size={18} /> <strong>Meta Ads (Instagram/Facebook):</strong> Como encontrar e atrair os clientes com maior poder aquisitivo da sua cidade.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Google Ads:</strong> O passo a passo para aparecer no topo exato da tela quando alguém pesquisar pelo seu serviço.</li>
-                            <li><CheckCircle2 size={18} /> <strong>Lucro no Bolso:</strong> Como ler as métricas de forma rápida para saber exatamente se a campanha está dando lucro.</li>
-                        </ul>
+                        <p style={{ color: "var(--text-body-glass)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                            Aplique campanhas inteligentes para <strong style={{ color: "#fff" }}>amplificar sua autoridade</strong> e acelerar a chegada de novos clientes — com previsibilidade.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -477,22 +477,30 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div style={{ maxWidth: "800px", margin: "50px auto 0", textAlign: "justify", padding: "0 20px" }}>
-                    <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7", marginBottom: "15px" }}>
-                        Muito prazer, sou <strong style={{ color: "#fff" }}>Éricles Lima</strong>.
-                    </p>
-                    <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7", marginBottom: "15px" }}>
-                        Não sou mais um teórico repetindo fórmulas rasas de internet. Sou o estrategista que atua nos bastidores das câmeras e das telas, orquestrando posicionamentos que geram resultados reais. Por mais de 3 anos, atuei na linha de frente de uma das maiores produtoras de videoclipes do Nordeste, lapidando projetos que, somados, ultrapassam a marca colossal de <strong style={{ color: "var(--primary)" }}>1 bilhão de visualizações</strong>. Integrei também a equipe técnica de produções de relevância nacional, com conteúdos em vitrines como o <strong style={{ color: "var(--primary)" }}>Portal Léo Dias e o programa Hora do Faro (Record TV)</strong>.
-                    </p>
-                    <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7", marginBottom: "15px" }}>
-                        Minha bagagem foi forjada no campo de batalha mais competitivo que existe: atuei como <strong style={{ color: "var(--primary)" }}>estrategista e editor audiovisual em 4 campanhas políticas (2018, 2020, 2022 e 2024)</strong> a nível municipal e estadual, orquestrando a percepção de imagem dos candidatos na TV e no digital.
-                    </p>
-                    <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7", marginBottom: "15px" }}>
-                        No setor corporativo, assumi a direção e a produção de dezenas de comerciais — tanto para <strong style={{ color: "var(--primary)" }}>TV quanto para Campanhas Digitais</strong> — de grandes marcas regionais, como redes de supermercados, shoppings e concessionárias. Coroando essa trajetória, em 2024, fiz parte do time audiovisual da <strong style={{ color: "var(--primary)" }}>maior agência de publicidade do Rio Grande do Norte</strong>, dando vida a campanhas multimilionárias para o mercado imobiliário e corporativo.
-                    </p>
-                    <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.7" }}>
-                        Eu respiro o jogo da percepção de valor. O <strong>Método N.A.V.E.</strong> nasceu dessa expertise refinada: é a engenharia exata que utilizo para <strong style={{ color: "var(--primary)" }}>transformar profissionais em autoridades incontestáveis</strong>. Agora, chegou a hora de instalar essa mesma máquina de dominação no seu negócio.
-                    </p>
+                <div style={{ maxWidth: "800px", margin: "50px auto 0", textAlign: "center", padding: "0 20px" }}>
+                    <h3 style={{ fontSize: "1.6rem", color: "#fff", marginBottom: "30px" }}>Quem é Éricles Lima?</h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "30px" }}>
+                        <p style={{ fontSize: "1.1rem", color: "var(--text-main)", lineHeight: "1.6" }}>
+                            Mais de <strong style={{ color: "var(--primary)" }}>R$ 500 mil gerenciados</strong> em campanhas.
+                        </p>
+                        <p style={{ fontSize: "1.1rem", color: "var(--text-main)", lineHeight: "1.6" }}>
+                            Participação em projetos que ultrapassaram <strong style={{ color: "var(--primary)" }}>1 bilhão de visualizações</strong>.
+                        </p>
+                        <p style={{ fontSize: "1.1rem", color: "var(--text-main)", lineHeight: "1.6" }}>
+                            Experiência em <strong style={{ color: "var(--primary)" }}>campanhas políticas, grandes marcas regionais</strong> e em uma das maiores agências de publicidade do Rio Grande do Norte.
+                        </p>
+                    </div>
+                    <div style={{ borderTop: "1px solid var(--glass-border)", paddingTop: "25px" }}>
+                        <p style={{ fontSize: "1.05rem", color: "var(--text-muted)", lineHeight: "1.8", marginBottom: "12px" }}>
+                            Nos últimos anos estive nos bastidores estudando uma única pergunta:
+                        </p>
+                        <p style={{ fontSize: "1.2rem", color: "#fff", lineHeight: "1.7", fontWeight: 700, fontStyle: "italic" }}>
+                            &quot;Por que alguns profissionais se tornam referências enquanto outros permanecem invisíveis?&quot;
+                        </p>
+                        <p style={{ fontSize: "1.15rem", color: "var(--primary)", lineHeight: "1.7", fontWeight: 700, marginTop: "20px" }}>
+                            O Método N.A.V.E. é a resposta.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -500,25 +508,25 @@ export default function Home() {
             <section className="container animate-enter" style={{ paddingTop: "60px", paddingBottom: "80px" }}>
                 <div className="text-center">
                     <h2 style={{ fontSize: "2.4rem" }}>4 Semanas Para a Decolagem</h2>
-                    <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginTop: "10px" }}>O cronograma de implementação do Método N.A.V.E.</p>
+                    <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", marginTop: "10px" }}>Sua jornada de profissional invisível a referência do mercado.</p>
                 </div>
 
                 <div className="timeline">
                     <div className="timeline-item">
-                        <h4 style={{ color: "var(--primary)" }}>Semana 1: Narrativa e I.A.</h4>
-                        <p>Posicionamento, construção da mensagem central e domínio prático da Inteligência Artificial para gerar ideias e roteiros todos os dias.</p>
+                        <h4 style={{ color: "var(--primary)" }}>Semana 1: Clareza e Posicionamento</h4>
+                        <p>Defina a mensagem que fará seu mercado enxergar seu valor.</p>
                     </div>
                     <div className="timeline-item">
-                        <h4 style={{ color: "var(--primary)" }}>Semana 2: Audiovisual</h4>
-                        <p>Prática de Setup, ajustes de iluminação/áudio e destrave de performance em frente à lente.</p>
+                        <h4 style={{ color: "var(--primary)" }}>Semana 2: Autoridade Visual</h4>
+                        <p>Aprenda a parecer tão bom quanto realmente é.</p>
                     </div>
                     <div className="timeline-item">
-                        <h4 style={{ color: "var(--primary)" }}>Semana 3: Vitrine</h4>
-                        <p>Criação e aprovação de Landing Pages de alta conversão e automações de bastidores.</p>
+                        <h4 style={{ color: "var(--primary)" }}>Semana 3: Máquina de Conversão</h4>
+                        <p>Construa uma estrutura que transforma atenção em oportunidades.</p>
                     </div>
                     <div className="timeline-item">
-                        <h4 style={{ color: "var(--primary)" }}>Semana 4: Escala</h4>
-                        <p>Configuração de Anúncios (Meta e Google Ads), lançamento das campanhas e otimização de métricas iniciais.</p>
+                        <h4 style={{ color: "var(--primary)" }}>Semana 4: Escala e Crescimento</h4>
+                        <p>Multiplique seu alcance sem multiplicar seu esforço.</p>
                     </div>
                 </div>
             </section>
@@ -559,11 +567,41 @@ export default function Home() {
                         <span style={{ display: "inline-block", background: "rgba(0, 255, 204, 0.1)", color: "var(--primary)", padding: "6px 16px", borderRadius: "50px", fontSize: "0.85rem", fontWeight: "700", marginBottom: "20px", letterSpacing: "1px" }}>
                             TURMA BETA — GRUPO RESTRITO
                         </span>
-                        <h2 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>Tudo Que Você Precisa Para Decolar</h2>
-                        <p style={{ color: "var(--text-muted)", fontSize: "1rem", maxWidth: "550px", margin: "0 auto" }}>Veja o que está incluso na sua vaga da Turma Beta do Método N.A.V.E.:</p>
+                        <h2 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>Sua Primeira Máquina de Autoridade Digital</h2>
+                        <div style={{ color: "var(--text-muted)", fontSize: "1rem", maxWidth: "600px", margin: "0 auto", lineHeight: "1.8" }}>
+                            <p style={{ marginBottom: "6px" }}>Em vez de contratar uma agência todos os meses...</p>
+                            <p style={{ marginBottom: "6px" }}>Em vez de depender exclusivamente de indicação...</p>
+                            <p style={{ marginBottom: "6px" }}>Em vez de torcer para que seus conteúdos funcionem...</p>
+                            <p style={{ color: "#fff", fontWeight: 700, marginTop: "12px" }}>Você sairá com uma estrutura própria para atrair, convencer e converter clientes.</p>
+                        </div>
                     </div>
 
-                    <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "10px", marginTop: "30px" }}>
+                    {/* O QUE VOCÊ TERÁ AO FINAL */}
+                    <div style={{ background: "rgba(0, 255, 204, 0.03)", border: "1px solid rgba(0, 255, 204, 0.15)", borderRadius: "16px", padding: "35px 30px", marginTop: "30px", marginBottom: "30px" }}>
+                        <h3 style={{ fontSize: "1.3rem", color: "#fff", marginBottom: "20px", textAlign: "center" }}>O que você terá ao final da mentoria</h3>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", maxWidth: "600px", margin: "0 auto" }}>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Posicionamento definido
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Conteúdo orientado à conversão
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Landing page validada
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Estrutura de captação funcionando
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Primeiras campanhas no ar
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                                <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Processo de aquisição sob seu controle
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "10px" }}>
                         <table className="offer-table">
                             <tbody>
                                 <tr>
@@ -594,7 +632,33 @@ export default function Home() {
                         </table>
                     </div>
 
-                    <div className="text-center" style={{ marginTop: "40px" }}>
+                    {/* BLOCO: IMAGINE DAQUI A 90 DIAS */}
+                    <div style={{ background: "rgba(0, 255, 204, 0.03)", border: "1px solid rgba(0, 255, 204, 0.15)", borderRadius: "16px", padding: "40px 30px", marginTop: "40px", marginBottom: "40px", textAlign: "center" }}>
+                        <h3 style={{ fontSize: "1.6rem", color: "#fff", marginBottom: "25px" }}>Imagine daqui a 90 dias...</h3>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "14px", maxWidth: "500px", margin: "0 auto", textAlign: "left" }}>
+                            <p style={{ color: "var(--text-main)", fontSize: "1.05rem", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                                <CheckCircle2 size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: "2px" }} />
+                                Seu Instagram transmitindo <strong style={{ color: "var(--primary)" }}>autoridade</strong>.
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "1.05rem", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                                <CheckCircle2 size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: "2px" }} />
+                                Seu nome sendo <strong style={{ color: "var(--primary)" }}>lembrado</strong>.
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "1.05rem", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                                <CheckCircle2 size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: "2px" }} />
+                                Seu WhatsApp recebendo <strong style={{ color: "var(--primary)" }}>contatos qualificados</strong>.
+                            </p>
+                            <p style={{ color: "var(--text-main)", fontSize: "1.05rem", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                                <CheckCircle2 size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: "2px" }} />
+                                Seus conteúdos <strong style={{ color: "var(--primary)" }}>trabalhando enquanto você atende</strong>.
+                            </p>
+                        </div>
+                        <p style={{ color: "#fff", fontSize: "1.1rem", fontWeight: 700, marginTop: "25px" }}>
+                            E o melhor: <span style={{ color: "var(--primary)" }}>sem depender de agência</span> para fazer isso acontecer.
+                        </p>
+                    </div>
+
+                    <div className="text-center">
                         <div style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "5px", textTransform: "uppercase", letterSpacing: "2px" }}>Condição Especial Turma Beta</div>
                         <div style={{ color: "var(--primary)", fontSize: "0.85rem", fontWeight: 700, marginBottom: "15px" }}>50% DE DESCONTO — APENAS PARA APROVADOS</div>
                         <div style={{ fontSize: "4.5rem", fontWeight: "900", color: "#fff", lineHeight: "1", textShadow: "0 0 30px rgba(0, 255, 204, 0.3)", marginBottom: "10px" }}>
@@ -602,9 +666,12 @@ export default function Home() {
                         </div>
                         <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "15px" }}>ou 12x de R$ 57,78 no cartão</p>
 
-                        <div style={{ background: "rgba(255, 107, 107, 0.1)", border: "1px solid rgba(255, 107, 107, 0.3)", padding: "12px 16px", borderRadius: "12px", marginBottom: "20px", display: "inline-block", maxWidth: "95%", textAlign: "left" }}>
-                            <p style={{ color: "#ff6b6b", fontSize: "0.95rem", lineHeight: "1.5", fontWeight: 500, margin: 0 }}>
-                                ⚠️ <strong style={{ color: "#fff" }}>APENAS 10 VAGAS DISPONÍVEIS:</strong> Para garantir uma análise cirúrgica e o meu acompanhamento estratégico individualizado com cada projeto, as aprovações para esta turma inaugural serão encerradas assim que atingirmos o limite.
+                        <div style={{ background: "rgba(255, 107, 107, 0.1)", border: "1px solid rgba(255, 107, 107, 0.3)", padding: "16px 20px", borderRadius: "12px", marginBottom: "20px", display: "inline-block", maxWidth: "95%", textAlign: "left" }}>
+                            <p style={{ color: "#fff", fontSize: "1rem", fontWeight: 800, marginBottom: "8px" }}>
+                                ⚠️ APENAS 10 ESPECIALISTAS SERÃO SELECIONADOS
+                            </p>
+                            <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", lineHeight: "1.6", margin: 0 }}>
+                                Para garantir análises profundas, acompanhamento próximo e feedback individualizado, cada edição do Método N.A.V.E. possui um número máximo de participantes. Nesta turma inaugural, <strong style={{ color: "#ff6b6b" }}>apenas 10 projetos serão aprovados</strong>.
                             </p>
                         </div>
 
@@ -633,7 +700,7 @@ export default function Home() {
                         </div>
 
                         <div style={{ maxWidth: "450px", margin: "0 auto" }}>
-                            <Link href="/diagnostico" className="btn-primary btn-pulse" style={{ padding: "20px 40px", fontSize: "1.1rem", display: "inline-block", width: "100%" }}>GARANTIR MINHA VAGA NA TURMA BETA</Link>
+                            <Link href="/diagnostico" className="btn-primary btn-pulse" style={{ padding: "20px 40px", fontSize: "1.1rem", display: "inline-block", width: "100%" }}>ENVIAR MINHA APLICAÇÃO</Link>
                         </div>
 
                         {/* GARANTIA */}
@@ -642,7 +709,7 @@ export default function Home() {
                                 <Shield size={24} />
                             </div>
                             <div>
-                                <p style={{ color: "#fff", fontSize: "0.95rem", fontWeight: 700, marginBottom: "4px" }}>Garantia do Primeiro Encontro</p>
+                                <p style={{ color: "#fff", fontSize: "0.95rem", fontWeight: 700, marginBottom: "4px" }}>Garantia de Alinhamento</p>
                                 <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", lineHeight: "1.5" }}>Se após o primeiro encontro ao vivo você sentir que a mentoria não é para você, devolvemos 100% do seu investimento. Sem burocracia.</p>
                             </div>
                         </div>
@@ -665,24 +732,40 @@ export default function Home() {
                     <p>Para profissionais liberais, donos de negócios e especialistas que têm dificuldade em empacotar seu conhecimento para atrair bons clientes pelas redes sociais, sem precisar desvalorizar o próprio serviço. Se você é dentista, advogado, arquiteto, nutricionista, dono de clínica, loja ou agência — essa mentoria foi pensada para você.</p>
                 </details>
                 <details className="faq-item">
+                    <summary>O Método N.A.V.E. funciona para qualquer segmento?</summary>
+                    <p>Sim. O método foi criado para profissionais que dependem de <strong>confiança</strong> para vender: médicos, dentistas, advogados, arquitetos, consultores, corretores, clínicas, lojas, prestadores de serviço e especialistas em geral. O princípio é sempre o mesmo: transformar conhecimento em autoridade e autoridade em demanda.</p>
+                </details>
+                <details className="faq-item">
                     <summary>Preciso de câmera profissional ou equipamento caro?</summary>
                     <p>Não. O Método N.A.V.E. foi validado para que você crie um posicionamento visual magnético e profissional utilizando apenas o seu celular, combinando iluminação e áudio adequados. Você vai se surpreender com o resultado.</p>
                 </details>
                 <details className="faq-item">
+                    <summary>Já contratei agência e não tive resultado. Essa mentoria é diferente?</summary>
+                    <p>Sim. Uma agência executa por você. O Método N.A.V.E. <strong>ensina você a compreender e controlar</strong> os pilares que fazem um negócio crescer no digital: posicionamento, conteúdo, conversão e aquisição de clientes. Você deixa de depender exclusivamente de terceiros para entender o que realmente gera resultado.</p>
+                </details>
+                <details className="faq-item">
                     <summary>Como funcionam os encontros ao vivo?</summary>
-                    <p>Teremos 4 encontros direto comigo pelo Zoom, um para cada pilar do método: Narrativa, Audiovisual, Vitrine e Escala. Durante as sessões, teremos o momento de <strong>Hotseat</strong>, onde analisarei individualmente suas páginas, roteiros e campanhas.</p>
+                    <p>Teremos 4 encontros direto comigo pelo Zoom, um para cada pilar do método. Durante as sessões, teremos o momento de <strong>Hotseat</strong>, onde analisarei individualmente suas páginas, roteiros e campanhas.</p>
                 </details>
                 <details className="faq-item">
                     <summary>Em quanto tempo vejo resultado?</summary>
                     <p>A estrutura completa é instalada em 4 semanas. Alunos que aplicam tudo já começam a receber os primeiros leads qualificados ainda durante o programa, especialmente na Semana 4 (Escala), quando ligamos as campanhas de tráfego.</p>
                 </details>
                 <details className="faq-item">
-                    <summary>Por que as vagas são através de aplicação?</summary>
-                    <p>Como a turma conta com acompanhamento cirúrgico nos seus negócios, o grupo precisa ser restrito. A aplicação me ajuda a garantir que você está no momento certo para aproveitar 100% e não perder dinheiro. Não é sobre exclusividade, é sobre responsabilidade.</p>
+                    <summary>Preciso ter uma empresa grande para participar?</summary>
+                    <p>Não. A maioria dos participantes chega justamente porque ainda não possui um sistema previsível de aquisição de clientes. O Método N.A.V.E. foi desenhado para quem quer <strong>estruturar essa máquina antes de crescer</strong>.</p>
+                </details>
+                <details className="faq-item">
+                    <summary>E se eu não me sentir preparado para aparecer?</summary>
+                    <p>Você não precisa ser influenciador, palestrante ou comunicador profissional. Uma das maiores vantagens do Método N.A.V.E. é justamente ajudar especialistas a <strong>transmitir autoridade com naturalidade</strong> — sem personagens, sem fórmulas artificiais e sem precisar virar criador de conteúdo em tempo integral.</p>
                 </details>
                 <details className="faq-item">
                     <summary>Tenho acesso ao conteúdo depois que a turma acabar?</summary>
                     <p>Sim. Além dos 4 encontros ao vivo, você terá <strong>1 ano de acesso ao Portal Chama Labs</strong> com todas as aulas gravadas, templates de páginas e prompts de I.A. para consultar sempre que precisar.</p>
+                </details>
+                <details className="faq-item">
+                    <summary>Por que existe um processo de aplicação?</summary>
+                    <p>Porque esta não é uma turma aberta. Cada participante recebe análises individuais, feedback estratégico e acompanhamento próximo. A aplicação garante que você está no momento certo para aproveitar o método e que conseguiremos <strong>gerar avanços reais</strong> durante a mentoria.</p>
                 </details>
             </section>
 
