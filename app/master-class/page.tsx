@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Calendar, Clock, Users, Zap, TrendingUp, Target, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Calendar, Clock, Users, Zap, TrendingUp, Target, ArrowRight, CheckCircle2, Eye, Shield, Sparkles } from "lucide-react";
 
 export default function MasterClass() {
   const [form, setForm] = useState({ nome: "", email: "", whatsapp: "", segmento: "" });
@@ -11,7 +11,7 @@ export default function MasterClass() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const deadline = new Date("2026-06-05T19:00:00-03:00").getTime();
+    const deadline = new Date("2026-06-19T19:00:00-03:00").getTime();
     const tick = () => {
       const now = new Date().getTime();
       const d = deadline - now;
@@ -165,20 +165,23 @@ export default function MasterClass() {
           <Link href="/" className="mc-logo">
             <img src="/nave-logo.png" alt="Método N.A.V.E." />
           </Link>
-          <div className="mc-badge-live"><span className="dot" /> AO VIVO · 5 DE JUNHO</div>
+          <div className="mc-badge-live"><span className="dot" /> AO VIVO · 19 DE JUNHO</div>
         </div>
       </header>
 
       <section className="mc-hero mc-container">
-        <div className="mc-tag">MASTERCLASS GRATUITA</div>
+        <div className="mc-tag">MASTERCLASS GRATUITA AO VIVO</div>
+        <p style={{ color: "var(--primary)", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "1px", marginBottom: "12px", textTransform: "uppercase" }}>O Paradoxo da Autoridade Oculta</p>
         <h1 className="mc-title">
-          Os 4 passos para transformar <span className="mc-hl">audiência em vendas</span> todos os dias
+          O mercado não recompensa <span className="mc-hl">competência</span>.<br />
+          Recompensa <span className="mc-hl">competência percebida</span>.
         </h1>
         <p className="mc-sub">
-          Uma aula ao vivo e gratuita onde você vai descobrir o sistema que conecta o seu conteúdo diretamente à sua agenda de vendas — seja de produtos ou de serviços.
+          Descubra o sistema que transforma conhecimento em autoridade, autoridade em demanda e demanda em clientes — mesmo que você não tenha milhares de seguidores, uma equipe de marketing ou uma agência trabalhando para você.
         </p>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", fontStyle: "italic", marginBottom: "30px" }}>A aula que deu origem ao Método N.A.V.E.</p>
         <div className="mc-info-strip">
-          <div className="mc-info-item"><Calendar size={18} /> 5 de Junho, 2026</div>
+          <div className="mc-info-item"><Calendar size={18} /> 19 de Junho, 2026</div>
           <div className="mc-info-item"><Clock size={18} /> 19h (Horário de Brasília)</div>
           <div className="mc-info-item"><Users size={18} /> Vagas Limitadas</div>
         </div>
@@ -188,42 +191,64 @@ export default function MasterClass() {
           <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.minutes).padStart(2, "0")}</div><div className="mc-cd-label">Min</div></div>
           <div className="mc-cd-box"><div className="mc-cd-num">{String(timeLeft.seconds).padStart(2, "0")}</div><div className="mc-cd-label">Seg</div></div>
         </div>
+
+        {/* O QUE VOCÊ VAI ENTENDER */}
+        <div style={{ background: "rgba(30,41,59,0.3)", border: "1px solid var(--glass-border)", borderRadius: "16px", padding: "30px", maxWidth: "650px", margin: "0 auto 20px", textAlign: "left" }}>
+          <h3 style={{ fontSize: "1.15rem", color: "#fff", marginBottom: "18px", textAlign: "center" }}>O que você vai entender nesta aula</h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Por que competência sozinha não gera demanda
+            </p>
+            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Como profissionais comuns se tornam referência
+            </p>
+            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Como criar autoridade sem virar influenciador
+            </p>
+            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Como transformar conteúdo em oportunidades
+            </p>
+            <p style={{ color: "var(--text-main)", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0 }} /> Como construir um sistema que trabalha por você
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="mc-container">
         <div className="mc-grid">
           <div className="mc-benefits">
-            <h2>O que você vai descobrir nessa aula:</h2>
+            <h2>O que você vai descobrir nesta aula:</h2>
 
             <div className="mc-benefit-card">
-              <div className="mc-benefit-icon"><Target size={20} /></div>
+              <div className="mc-benefit-icon"><Eye size={20} /></div>
               <div>
-                <h4>Passo 1 — O erro invisível</h4>
-                <p>Por que 90% dos profissionais competentes continuam sendo &quot;mais um&quot; no mercado — e o que os outros 10% fazem diferente antes mesmo de postar.</p>
+                <h4>Passo 1 — Por que profissionais excelentes continuam invisíveis</h4>
+                <p>O erro que impede especialistas de serem percebidos como referência — mesmo sendo tecnicamente superiores aos concorrentes.</p>
+              </div>
+            </div>
+
+            <div className="mc-benefit-card">
+              <div className="mc-benefit-icon"><Shield size={20} /></div>
+              <div>
+                <h4>Passo 2 — A construção da autoridade percebida</h4>
+                <p>Como gerar confiança antes mesmo da primeira conversa com um potencial cliente.</p>
               </div>
             </div>
 
             <div className="mc-benefit-card">
               <div className="mc-benefit-icon"><TrendingUp size={20} /></div>
               <div>
-                <h4>Passo 2 — A armadilha do engajamento</h4>
-                <p>Curtidas não pagam boleto. Vou te mostrar por que o conteúdo que mais viraliza quase nunca é o que mais vende — e como inverter isso.</p>
+                <h4>Passo 3 — A máquina de demanda</h4>
+                <p>Como transformar atenção em oportunidades reais de negócio sem depender exclusivamente de indicação.</p>
               </div>
             </div>
 
             <div className="mc-benefit-card">
-              <div className="mc-benefit-icon"><Zap size={20} /></div>
+              <div className="mc-benefit-icon"><Sparkles size={20} /></div>
               <div>
-                <h4>Passo 3 — O vendedor que nunca dorme</h4>
-                <p>Existe uma engrenagem que trabalha enquanto você atende, dorme ou viaja. A maioria nem sabe que ela existe. Quem monta, para de correr atrás de cliente.</p>
-              </div>
-            </div>
-
-            <div className="mc-benefit-card">
-              <div className="mc-benefit-icon"><ArrowRight size={20} /></div>
-              <div>
-                <h4>Passo 4 — O multiplicador silencioso</h4>
-                <p>A tecnologia que está permitindo que negócios de 1 pessoa entreguem resultado de equipe de 5. Quem não usar agora, vai pagar caro pela demora.</p>
+                <h4>Passo 4 — Escala inteligente</h4>
+                <p>Como utilizar IA, automação e posicionamento estratégico para amplificar sua autoridade sem aumentar sua carga de trabalho.</p>
               </div>
             </div>
           </div>
@@ -231,8 +256,8 @@ export default function MasterClass() {
           <div className="mc-form-wrap" id="inscricao">
             {!enviado ? (
               <>
-                <h3>Garanta sua vaga agora</h3>
-                <p className="mc-form-sub">Preencha abaixo e entre no grupo de avisos pelo WhatsApp.</p>
+                <h3>Reserve sua vaga gratuita</h3>
+                <p className="mc-form-sub">Preencha abaixo para receber o link privado da aula ao vivo.</p>
                 <form onSubmit={handleSubmit}>
                   <div className="mc-field">
                     <label>Seu nome</label>
@@ -261,7 +286,7 @@ export default function MasterClass() {
                     </select>
                   </div>
                   <button type="submit" className="mc-submit" disabled={loading}>
-                    {loading ? "INSCREVENDO..." : "QUERO PARTICIPAR — É GRATUITO"}
+                    {loading ? "RESERVANDO..." : "RESERVAR MINHA VAGA GRATUITA"}
                   </button>
                   <div className="mc-vagas"><CheckCircle2 size={14} /> 100% gratuita · Vagas limitadas</div>
                 </form>
