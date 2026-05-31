@@ -664,7 +664,7 @@ export default function Home() {
                         <div style={{ fontSize: "4.5rem", fontWeight: "900", color: "#fff", lineHeight: "1", textShadow: "0 0 30px rgba(0, 255, 204, 0.3)", marginBottom: "10px" }}>
                             <span style={{ fontSize: "2rem", verticalAlign: "top", color: "var(--primary)" }}>R$</span> 599<span style={{ fontSize: "2rem" }}>,00</span>
                         </div>
-                        <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "15px" }}>ou 12x de R$ 57,78 no cartão</p>
+                        <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "15px" }}>ou 12x de R$ 61,58 no cartão</p>
 
                         <div style={{ background: "rgba(255, 107, 107, 0.1)", border: "1px solid rgba(255, 107, 107, 0.3)", padding: "16px 20px", borderRadius: "12px", marginBottom: "20px", display: "inline-block", maxWidth: "95%", textAlign: "left" }}>
                             <p style={{ color: "#fff", fontSize: "1rem", fontWeight: 800, marginBottom: "8px" }}>
