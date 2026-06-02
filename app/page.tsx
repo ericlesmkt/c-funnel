@@ -7,6 +7,21 @@ import { CheckCircle2, Play, Layout, TrendingUp, MonitorSmartphone, XCircle, Shi
 export default function Home() {
     // Countdown: calcula o próximo domingo (fim da semana)
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const [cookieState, setCookieState] = useState('pending');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && localStorage.getItem('nave_cookies')) {
+            setCookieState('resolved');
+        }
+    }, []);
+
+    const handleCookie = (accepted: boolean) => {
+        setCookieState('closing');
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('nave_cookies', accepted ? 'accepted' : 'declined');
+        }
+        setTimeout(() => setCookieState('resolved'), 500);
+    };
 
     useEffect(() => {
         const getNextSunday = () => {
@@ -208,6 +223,9 @@ export default function Home() {
         .mobile-sticky { position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(5, 10, 16, 0.9); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 12px 24px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 1s 1s backwards; }
         .sticky-btn { background: var(--primary); color: #050a10; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.9rem; box-shadow: 0 0 15px rgba(0, 255, 204, 0.3); transition: 0.3s; position: relative; z-index: 10; text-transform: uppercase; }
         .sticky-btn:active { box-shadow: 0 0 40px rgba(0, 255, 204, 0.7); }
+
+        @keyframes slideDown { from { transform: translateY(0); opacity: 1; } to { transform: translateY(150%); opacity: 0; } }
+        .animate-slide-down { animation: slideDown 0.5s ease forwards !important; }
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
@@ -775,13 +793,25 @@ export default function Home() {
                 </div>
             </footer>
 
-            <div className="mobile-sticky">
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Método N.A.V.E.</span>
-                    <span style={{ color: "var(--primary)", fontSize: "0.85rem" }}>Aplicação Liberada</span>
+            {cookieState !== 'resolved' ? (
+                <div className={`mobile-sticky ${cookieState === 'closing' ? 'animate-slide-down' : ''}`} style={{ flexDirection: "column", gap: "12px", alignItems: "flex-start", animationDelay: "0s" }}>
+                    <div style={{ fontSize: "0.85rem", color: "var(--text-main)", lineHeight: "1.4" }}>
+                        Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência e medir o desempenho das nossas campanhas.
+                    </div>
+                    <div style={{ display: "flex", gap: "10px", width: "100%" }}>
+                        <button onClick={() => handleCookie(false)} style={{ flex: 1, padding: "10px", borderRadius: "8px", background: "transparent", border: "1px solid var(--glass-border)", color: "var(--text-muted)", fontSize: "0.85rem", fontWeight: 700, cursor: "pointer", transition: "0.3s" }}>Apenas Essenciais</button>
+                        <button onClick={() => handleCookie(true)} style={{ flex: 1, padding: "10px", borderRadius: "8px", background: "var(--primary)", color: "#050a10", fontSize: "0.85rem", fontWeight: 800, cursor: "pointer", transition: "0.3s", boxShadow: "0 0 15px rgba(0, 255, 204, 0.2)" }}>Aceitar Todos</button>
+                    </div>
                 </div>
-                <Link href="/diagnostico" className="sticky-btn">APLICAR</Link>
-            </div>
+            ) : (
+                <div className="mobile-sticky">
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                        <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "white" }}>Método N.A.V.E.</span>
+                        <span style={{ color: "var(--primary)", fontSize: "0.85rem" }}>Aplicação Liberada</span>
+                    </div>
+                    <Link href="/diagnostico" className="sticky-btn">APLICAR</Link>
+                </div>
+            )}
         </>
     );
 }
