@@ -18,6 +18,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Aplica o middleware apenas nestas rotas exatas
-  matcher: ['/', '/diagnostico'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|master-class).*)',
+  ],
 };
