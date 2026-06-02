@@ -227,6 +227,22 @@ export default function Home() {
         @keyframes slideDown { from { transform: translateY(0); opacity: 1; } to { transform: translateY(150%); opacity: 0; } }
         .animate-slide-down { animation: slideDown 0.5s ease forwards !important; }
 
+        /* COOKIE BANNER PREMIUM */
+        .cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; margin: 0 auto; background: rgba(5, 10, 16, 0.95); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 20px 24px; border-radius: 16px; border: 1px solid var(--glass-border); display: flex; flex-direction: column; gap: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.8); z-index: 999; animation: fadeUp 0.5s ease backwards; }
+        .cookie-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.5; text-align: center; }
+        .cookie-buttons { display: flex; gap: 12px; width: 100%; justify-content: center; }
+        .cookie-btn-outline { flex: 1; padding: 12px 16px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .cookie-btn-outline:hover { background: rgba(255,255,255,0.08); color: #fff; }
+        .cookie-btn-primary { flex: 1; padding: 12px 16px; border-radius: 8px; background: var(--primary); color: #050a10; font-size: 0.85rem; font-weight: 800; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0, 255, 204, 0.2); }
+        .cookie-btn-primary:hover { box-shadow: 0 0 25px rgba(0, 255, 204, 0.5); transform: translateY(-1px); }
+
+        @media (min-width: 768px) {
+            .cookie-banner { bottom: 30px; max-width: 800px; padding: 24px 30px; flex-direction: row; align-items: center; justify-content: space-between; }
+            .cookie-text { text-align: left; flex: 1; font-size: 0.9rem; }
+            .cookie-buttons { width: auto; flex-shrink: 0; gap: 16px; }
+            .cookie-btn-outline, .cookie-btn-primary { padding: 12px 24px; flex: none; }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .display-text { font-size: 1.8rem; line-height: 1.1; }
@@ -794,13 +810,13 @@ export default function Home() {
             </footer>
 
             {cookieState !== 'resolved' ? (
-                <div className={`mobile-sticky ${cookieState === 'closing' ? 'animate-slide-down' : ''}`} style={{ flexDirection: "column", gap: "12px", alignItems: "flex-start", animationDelay: "0s" }}>
-                    <div style={{ fontSize: "0.85rem", color: "var(--text-main)", lineHeight: "1.4" }}>
+                <div className={`cookie-banner ${cookieState === 'closing' ? 'animate-slide-down' : ''}`}>
+                    <div className="cookie-text">
                         Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência e medir o desempenho das nossas campanhas.
                     </div>
-                    <div style={{ display: "flex", gap: "10px", width: "100%" }}>
-                        <button onClick={() => handleCookie(false)} style={{ flex: 1, padding: "10px", borderRadius: "8px", background: "transparent", border: "1px solid var(--glass-border)", color: "var(--text-muted)", fontSize: "0.85rem", fontWeight: 700, cursor: "pointer", transition: "0.3s" }}>Apenas Essenciais</button>
-                        <button onClick={() => handleCookie(true)} style={{ flex: 1, padding: "10px", borderRadius: "8px", background: "var(--primary)", color: "#050a10", fontSize: "0.85rem", fontWeight: 800, cursor: "pointer", transition: "0.3s", boxShadow: "0 0 15px rgba(0, 255, 204, 0.2)" }}>Aceitar Todos</button>
+                    <div className="cookie-buttons">
+                        <button onClick={() => handleCookie(false)} className="cookie-btn-outline">Apenas Essenciais</button>
+                        <button onClick={() => handleCookie(true)} className="cookie-btn-primary">Aceitar Todos</button>
                     </div>
                 </div>
             ) : (
