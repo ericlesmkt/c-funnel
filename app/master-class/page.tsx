@@ -299,7 +299,7 @@ export default function MasterClass() {
                 <div className="mc-success-icon"><CheckCircle2 size={32} /></div>
                 <h3>Inscrição confirmada! 🎉</h3>
                 <p>Agora entre no grupo do WhatsApp para receber o link da aula e os avisos exclusivos.</p>
-                <a href="https://chat.whatsapp.com/SEU_GRUPO_AQUI" target="_blank" rel="noopener noreferrer" className="mc-wpp-btn">
+                <a href="https://chat.whatsapp.com/EqSMXDH6Hs7KedGrMNxelx" target="_blank" rel="noopener noreferrer" className="mc-wpp-btn">
                   <Zap size={18} /> ENTRAR NO GRUPO DE AVISOS
                 </a>
               </div>
