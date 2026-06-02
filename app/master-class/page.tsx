@@ -162,9 +162,9 @@ export default function MasterClass() {
 
       <header className="mc-header">
         <div className="mc-header-inner">
-          <Link href="/" className="mc-logo">
+          <div className="mc-logo">
             <img src="/nave-logo.png" alt="Método N.A.V.E." />
-          </Link>
+          </div>
           <div className="mc-badge-live"><span className="dot" /> AO VIVO · 19 DE JUNHO</div>
         </div>
       </header>
