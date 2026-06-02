@@ -289,6 +289,9 @@ export default function MasterClass() {
                     {loading ? "RESERVANDO..." : "RESERVAR MINHA VAGA GRATUITA"}
                   </button>
                   <div className="mc-vagas"><CheckCircle2 size={14} /> 100% gratuita · Vagas limitadas</div>
+                  <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", textAlign: "center", marginTop: "16px", lineHeight: "1.4" }}>
+                    🔒 Ao se inscrever, você concorda em receber comunicações sobre este evento e sobre o Método N.A.V.E. Seus dados estão 100% protegidos e não serão compartilhados, em conformidade com a LGPD.
+                  </p>
                 </form>
               </>
             ) : (
