@@ -372,30 +372,37 @@ export default function LeadFunnel() {
 
         {/* NAVEGAÇÃO */}
         {step < 6 && (
-          <div className="flex gap-3 mt-8 pb-8">
-            {step > 1 && (
-              <button disabled={isSubmitting} onClick={prevStep} className="p-4 rounded-xl bg-[#1e293b] border border-[#1e293b] text-[#e2e8f0] hover:bg-[#1e293b]/80 disabled:opacity-50 transition-all">
-                <ArrowLeft size={20} />
-              </button>
-            )}
-            <button
-              disabled={
-                isSubmitting ||
-                (step === 1 && !formData.nicho) ||
-                (step === 2 && !formData.faturamento) ||
-                (step === 3 && (!formData.seguidores || !formData.statusConteudo)) ||
-                (step === 4 && !formData.gargalo) ||
-                (step === 5 && (!formData.nome.trim() || !formData.empresa.trim() || formData.whatsapp.length < 14))
-              }
-              onClick={step === totalSteps ? handleFinalizar : nextStep}
-              className="flex-1 py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,255,204,0.2)]"
-            >
-              {isSubmitting ? (
-                <><Loader2 className="animate-spin" size={20} /> Processando...</>
-              ) : (
-                <>{step === totalSteps ? "Enviar Aplicação" : "Continuar"} <ArrowRight size={20} /></>
+          <div className="flex flex-col mt-8 pb-8">
+            <div className="flex gap-3">
+              {step > 1 && (
+                <button disabled={isSubmitting} onClick={prevStep} className="p-4 rounded-xl bg-[#1e293b] border border-[#1e293b] text-[#e2e8f0] hover:bg-[#1e293b]/80 disabled:opacity-50 transition-all">
+                  <ArrowLeft size={20} />
+                </button>
               )}
-            </button>
+              <button
+                disabled={
+                  isSubmitting ||
+                  (step === 1 && !formData.nicho) ||
+                  (step === 2 && !formData.faturamento) ||
+                  (step === 3 && (!formData.seguidores || !formData.statusConteudo)) ||
+                  (step === 4 && !formData.gargalo) ||
+                  (step === 5 && (!formData.nome.trim() || !formData.empresa.trim() || formData.whatsapp.length < 14))
+                }
+                onClick={step === totalSteps ? handleFinalizar : nextStep}
+                className="flex-1 py-4 rounded-xl bg-[#00ffcc] text-[#050a10] font-bold text-base hover:bg-[#33ffdb] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,255,204,0.2)]"
+              >
+                {isSubmitting ? (
+                  <><Loader2 className="animate-spin" size={20} /> Processando...</>
+                ) : (
+                  <>{step === totalSteps ? "Enviar Aplicação" : "Continuar"} <ArrowRight size={20} /></>
+                )}
+              </button>
+            </div>
+            {step === totalSteps && (
+              <p className="text-[#94a3b8] text-[10px] text-center mt-4">
+                🔒 Ao enviar sua aplicação, você concorda em receber comunicações sobre o Método N.A.V.E. Seus dados estão 100% protegidos e não serão compartilhados, em conformidade com a LGPD.
+              </p>
+            )}
           </div>
         )}
 
