@@ -30,6 +30,14 @@ export default function MasterClass() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validação estrita de e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      alert("Por favor, insira um e-mail válido.");
+      return;
+    }
+
     setLoading(true);
     try {
       await fetch("/api/masterclass", {
@@ -40,7 +48,7 @@ export default function MasterClass() {
       setEnviado(true);
       // Redireciona para grupo do WhatsApp após 2s
       setTimeout(() => {
-        window.open("https://chat.whatsapp.com/SEU_GRUPO_AQUI", "_blank");
+        window.open("https://chat.whatsapp.com/EqSMXDH6Hs7KedGrMNxelx", "_blank");
       }, 2000);
     } catch {
       alert("Erro ao inscrever. Tente novamente.");
