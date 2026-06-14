@@ -11,7 +11,7 @@ export default function MasterClass() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const deadline = new Date("2026-06-19T19:00:00-03:00").getTime();
+    const deadline = new Date("2026-07-07T19:00:00-03:00").getTime();
     const tick = () => {
       const now = new Date().getTime();
       const d = deadline - now;
@@ -173,7 +173,7 @@ export default function MasterClass() {
           <div className="mc-logo">
             <img src="/nave-logo.png" alt="Método N.A.V.E." />
           </div>
-          <div className="mc-badge-live"><span className="dot" /> AO VIVO · 19 DE JUNHO</div>
+          <div className="mc-badge-live"><span className="dot" /> AO VIVO · 7 DE JULHO</div>
         </div>
       </header>
 
@@ -189,7 +189,7 @@ export default function MasterClass() {
         </p>
         <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", fontStyle: "italic", marginBottom: "30px" }}>A aula que deu origem ao Método N.A.V.E.</p>
         <div className="mc-info-strip">
-          <div className="mc-info-item"><Calendar size={18} /> 19 de Junho, 2026</div>
+          <div className="mc-info-item"><Calendar size={18} /> 7 de Julho, 2026</div>
           <div className="mc-info-item"><Clock size={18} /> 19h (Horário de Brasília)</div>
           <div className="mc-info-item"><Users size={18} /> Vagas Limitadas</div>
         </div>
