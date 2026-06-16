@@ -29,7 +29,7 @@ export default function FacebookPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1864813867825154');
+            fbq('init', '1939866986621404');
             fbq('track', 'PageView');
           `,
         }}
@@ -39,7 +39,7 @@ export default function FacebookPixel() {
           height="1"
           width="1"
           style={{ display: "none" }}
-          src="https://www.facebook.com/tr?id=1864813867825154&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=1939866986621404&ev=PageView&noscript=1"
           alt=""
         />
       </noscript>
