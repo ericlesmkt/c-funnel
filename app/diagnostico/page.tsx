@@ -71,13 +71,10 @@ export default function LeadFunnel() {
       console.log("✅ Lead qualificado e salvo com sucesso:", data);
 
       // DISPARO DO EVENTO PRO META ADS
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (typeof window !== 'undefined' && (window as any).fbq) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).fbq('track', 'Lead', {
-          content_name: 'Aplicacao_Imersao_HighEnd',
-          value: 599.20,
-          currency: 'BRL'
+          content_name: 'Aplicacao_Imersao_HighEnd'
         });
       }
 
