@@ -2,9 +2,9 @@
 
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
-export default function FacebookPixel() {
+function PixelTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -14,8 +14,15 @@ export default function FacebookPixel() {
     }
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+export default function FacebookPixel() {
   return (
     <>
+      <Suspense fallback={null}>
+        <PixelTracker />
+      </Suspense>
       <Script
         id="fb-pixel"
         strategy="afterInteractive"
