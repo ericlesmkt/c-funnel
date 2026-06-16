@@ -45,6 +45,17 @@ export default function MasterClass() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+
+      // DISPARO DO EVENTO PRO META ADS
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'Inscricao_Masterclass',
+          currency: 'BRL'
+        });
+      }
+
       setEnviado(true);
       // Redireciona para grupo do WhatsApp após 2s
       setTimeout(() => {
